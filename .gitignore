@@ -3,3 +3,5 @@
 .settings
 .mymetadata
 .gitignore~
+WebRoot/WEB-INF/classes/*
+
