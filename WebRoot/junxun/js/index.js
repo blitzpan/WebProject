@@ -13,3 +13,7 @@ function loadIndex(){
 	$("#linkDiv").load('./linkPage.html');
 	$("#footDiv").load('./footPage.html');
 }
+//跳转
+function goPage(page){
+	alert(page);
+}
