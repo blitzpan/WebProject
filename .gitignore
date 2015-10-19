@@ -4,4 +4,5 @@
 .mymetadata
 .gitignore~
 WebRoot/WEB-INF/classes/*
-
+.project
+.classpath
