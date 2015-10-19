@@ -15,5 +15,7 @@ function loadIndex(){
 }
 //跳转
 function goPage(page){
+	$("#centerDiv").empty();
 	alert(page);
+	$('#centerDiv').load('./listContent.html');
 }
