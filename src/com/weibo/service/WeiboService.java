@@ -1,29 +1,32 @@
 package com.weibo.service;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.weibo.dao.SourceDao;
+import com.weibo.entity.Source;
+import com.weibo.util.WeiboSay;
 
 import weibo4j.Timeline;
 import weibo4j.model.Status;
 import weibo4j.model.StatusWapper;
-
-import com.auto.source.bo.SourceBo;
-import com.auto.source.entity.Source;
-import com.auto.utils.MyApplicationContextUtil;
-import com.weibosay.WeiboSay;
 
 /*具体定时任务的实现类*/
 @Transactional
 @Service
 public class WeiboService {
 	private WeiboSay ws = null;
-	private SourceBo sourceBo;
+	@Autowired
+	private SourceDao sourceDao;
 	private Source source;
-
-	public void run() {
+	
+	public void doWeibo() {
 		try{
 			String at = "2.00Hp8ZeC1rOq2C7a23d0528aB4paQC";
 			Timeline tm = new Timeline();
@@ -64,14 +67,14 @@ public class WeiboService {
 //		int type = ScheduleUtils.getDoWhat()[date.get(Calendar.HOUR_OF_DAY)];// 根据时间获取当前应该干什么
 		int type = (int) (Math.random()*30);
 		type = 10;
+		Map parm = new HashMap();
 		/* 获取要发表的内容 */
 		try {
 			System.out.println("查询微博开始：");
-			sourceBo = (SourceBo) MyApplicationContextUtil.getContext().getBean("sourceBo");
 			if(type < 15){//笑话
 				source = new Source();
-				
-				source = sourceBo.getASourceForAutoSay(0);
+				parm.put("type", 0);
+				source = sourceDao.getASourceForAutoSay(parm);
 				// 启动发送微博线程
 				System.out.println("开始发送文字：");
 				if (source != null) {// 只有当不是空的时候才发
@@ -92,7 +95,8 @@ public class WeiboService {
 				ws.start();
 				System.out.println("发送图片结束。");
 			}else{
-				source = sourceBo.getASourceForAutoSay(2);
+				parm.put("type", 2);
+				source = sourceDao.getASourceForAutoSay(parm);
 				// 启动发送微博线程
 				System.out.println("开始发送视频");
 				if (source != null) {// 只有当不是空的时候才发
@@ -150,13 +154,5 @@ public class WeiboService {
 			}
 		}
 		return tempId;
-	}
-
-	public SourceBo getSourceBo() {
-		return sourceBo;
-	}
-
-	public void setSourceBo(SourceBo sourceBo) {
-		this.sourceBo = sourceBo;
 	}
 }
