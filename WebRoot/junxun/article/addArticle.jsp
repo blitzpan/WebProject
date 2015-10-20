@@ -3,13 +3,23 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%String path = request.getContextPath();%>
 <head>
-<title></title>
+<title>新增文章</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=path %>/junxun/bootstrap-3.3.5-dist/css/bootstrap.min.css">  
 <link rel="stylesheet" href="<%=path %>/junxun/css/mainStyle.css">  
 <script src="<%=path %>/junxun/js/jquery-2.1.4.js"></script>
 <script src="<%=path %>/junxun/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/lang/zh-cn/zh-cn.js"></script>
+<style type="text/css">
+divaaaa{
+	width:100%;
+}
+</style>
 <script type="text/javascript">
 $(function(){
 	$("#logoDiv").load("../junxun/public/logoPage.html");
@@ -43,36 +53,25 @@ $(function(){
 						</select>
 					</div>
 				</div>
-				
-				
-				
-				
-				
-				
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form>
-		
-		
-			
+				<div class="form-group">
+					<script id="editor" type="text/plain" class="col-sm-12" style="height:500px"></script>
+				</div>
+
+				<script type="text/javascript">
+				UE.getEditor('editor');
+				alert($("#edui1").width());
+				$("#edui1").css("width","");
+				</script>
+
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">Sign in</button>
+					</div>
+				</div>
+			</form>
+
+
 		</div>
 	</div>
 	<div class="row" id="footDiv"></div>
