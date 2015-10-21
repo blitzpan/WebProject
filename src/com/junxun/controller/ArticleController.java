@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.junxun.entity.Article;
@@ -15,6 +16,15 @@ public class ArticleController{
 	Logger log = Logger.getLogger(ArticleController.class);
 	@Autowired
 	private ArticleService articleService;
+	
+	/**
+	 * @Description:新增文章之前
+	 * @param @return   
+	 * @return ModelAndView  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年10月21日
+	 */
 	@RequestMapping(value="/beforeAddArticle")
 	public ModelAndView beforeAddArticle(){
 		ModelAndView mv = new ModelAndView();
@@ -28,6 +38,15 @@ public class ArticleController{
 		}
 		return mv;
 	}
+	/**
+	 * @Description:新增文章 
+	 * @param @param article
+	 * @param @return   
+	 * @return ModelAndView  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年10月21日
+	 */
 	@RequestMapping(value="/addArticle")
 	public ModelAndView addArticle(Article article){
 		ModelAndView mv = new ModelAndView();
@@ -45,16 +64,23 @@ public class ArticleController{
 		mv.addObject("nextPageBtn","再来一篇");
 		return mv;
 	}
-	
+	@RequestMapping(value="/getAllArticle")
+	public ModelAndView getAllArticle(){
+		System.out.println("123******************************");
+		ModelAndView mv = new ModelAndView();
+		Res res = new Res();
+		try{}catch(Exception e){
+			
+		}
+		mv.setViewName("/junxun/public/articleList");
+		mv.addObject("1",1);
+		mv.addObject("2","String2");
+		return mv;
+	}
 	public ArticleService getArticleService() {
 		return articleService;
 	}
-
-
-
 	public void setArticleService(ArticleService articleService) {
 		this.articleService = articleService;
 	}
-
-
 }
