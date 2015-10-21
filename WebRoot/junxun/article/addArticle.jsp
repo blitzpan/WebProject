@@ -15,17 +15,10 @@
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/article/js/addArticle.js"></script>
 <style type="text/css">
-divaaaa{
-	width:100%;
-}
 </style>
 <script type="text/javascript">
-$(function(){
-	$("#logoDiv").load("../junxun/public/logoPage.html");
-	$("#navDiv").load("../junxun/public/navPage.html");
-	$("#footDiv").load("../junxun/public/footPage.html");
-});
 </script>
 </head>
 <body>
@@ -56,22 +49,15 @@ $(function(){
 				<div class="form-group">
 					<script id="editor" type="text/plain" class="col-sm-12" style="height:500px"></script>
 				</div>
-
-				<script type="text/javascript">
-				UE.getEditor('editor');
-				alert($("#edui1").width());
-				$("#edui1").css("width","");
-				</script>
-
-
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">Sign in</button>
+					<div class="col-sm-offset-2 col-sm-1">
+						<button id="save" type="button" class="btn btn-default">保存</button>
+					</div>
+					<div class="col-sm-offset-1 col-sm-8">
+						<button id="reset" type="button" class="btn btn-danger">重置</button>
 					</div>
 				</div>
 			</form>
-
-
 		</div>
 	</div>
 	<div class="row" id="footDiv"></div>
