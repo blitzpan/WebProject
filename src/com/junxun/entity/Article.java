@@ -9,6 +9,11 @@ public class Article {
 	private String cjsj;
 	private String state = "1";
 	
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", uid=" + uid + ", type=" + type + ", title=" + title + ", content=" + content
+				+ ", cjsj=" + cjsj + ", state=" + state + "]";
+	}
 	public String getId() {
 		return id;
 	}

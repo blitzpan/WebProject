@@ -1,11 +1,14 @@
 package com.junxun.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.junxun.dao.ArticleDao;
 import com.junxun.entity.Article;
+import com.junxun.util.Page;
 
 @Service
 @Transactional
@@ -27,5 +30,18 @@ public class ArticleService {
 			article.setState("0");
 		}
 		return articleDao.addArticle(article);
+	}
+	/**
+	 * @Description:获取翻页文章 
+	 * @param @param page
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return List  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年10月21日
+	 */
+	public List getAllArticle(Page page) throws Exception{
+		return articleDao.getAllArticle(page);
 	}
 }

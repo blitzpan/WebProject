@@ -4,12 +4,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.junxun.entity.Article;
 import com.junxun.entity.Res;
 import com.junxun.service.ArticleService;
+import com.junxun.util.Page;
 @RequestMapping(value="/article")
 @Controller
 public class ArticleController{
@@ -64,17 +64,29 @@ public class ArticleController{
 		mv.addObject("nextPageBtn","再来一篇");
 		return mv;
 	}
+	/**
+	 * @Description:获取所有文章 
+	 * @param @return   
+	 * @return ModelAndView  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年10月21日
+	 */
 	@RequestMapping(value="/getAllArticle")
-	public ModelAndView getAllArticle(){
-		System.out.println("123******************************");
+	public ModelAndView getAllArticle(Page page){
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
-		try{}catch(Exception e){
-			
+		try{
+			page = page==null?new Page():page;
+			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page));
+		}catch(Exception e){
+			res.setFailed("翻页查询异常！");
+			log.error("getAllArticle", e);
 		}
+		System.out.println(res.getRes());
 		mv.setViewName("/junxun/public/articleList");
-		mv.addObject("1",1);
-		mv.addObject("2","String2");
+		mv.addObject("res",res);
+		mv.addObject("page", page);
 		return mv;
 	}
 	public ArticleService getArticleService() {
