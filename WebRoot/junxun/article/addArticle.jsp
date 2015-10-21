@@ -23,21 +23,27 @@
 </head>
 <body>
 <div class="container">
-	<div class="row" id="logoDiv"></div>
-	<div id="navDiv"></div>
+	<div class="row" id="logoDiv">
+		<jsp:include page="../public/logoPage.jsp"></jsp:include>
+	</div>
+	<div id="navDiv">
+		<jsp:include page="../public/navPage.jsp"></jsp:include>
+	</div>
 	<div class="row">
 		<div class="col-lg-8" id="formDiv">
-			<form class="form-horizontal">
+			<form id="addForm" class="form-horizontal" action="./addArticle.action" method="post">
+				<input id="content" name="content" type="hidden" />
+				<input id="uid" name="uid" type="hidden" value="12356"/>
 				<div class="form-group">
 					<label for="title" class="col-sm-2 control-label">标题：</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="title" placeholder="标题">
+						<input type="text" class="form-control" id="title" name="title" placeholder="标题">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="type" class="col-sm-2 control-label">分类：</label>
 					<div class="col-sm-10">
-						<select class="form-control" id="type">
+						<select class="form-control" id="type" name="type">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -60,7 +66,9 @@
 			</form>
 		</div>
 	</div>
-	<div class="row" id="footDiv"></div>
+	<div class="row" id="footDiv">
+		<jsp:include page="../public/footPage.jsp"></jsp:include>
+	</div>
 </div>
 </body>
 </html>

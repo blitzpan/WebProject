@@ -33,6 +33,8 @@ public class ArticleController{
 System.out.println("addArticle********************************");
 System.out.println("article.id" + article.getId());
 System.out.println("article.title" + article.getTitle());
+System.out.println("article.type" + article.getType());
+System.out.println("article.content" + article.getContent());
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		mv.setViewName("index");

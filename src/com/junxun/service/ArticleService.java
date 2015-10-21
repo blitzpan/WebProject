@@ -1,5 +1,6 @@
 package com.junxun.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +10,7 @@ import com.junxun.entity.Article;
 @Service
 @Transactional
 public class ArticleService {
+	@Autowired
 	private ArticleDao articleDao;
 	/**
 	 * @Description:插入一篇新的文章 

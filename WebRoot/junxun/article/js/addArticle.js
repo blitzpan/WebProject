@@ -1,8 +1,5 @@
 var intTer;
 $(function(){
-	$("#logoDiv").load("../junxun/public/logoPage.html");
-	$("#navDiv").load("../junxun/public/navPage.html");
-	$("#footDiv").load("../junxun/public/footPage.html");
 	//show and reset UEdit
 	UE.getEditor('editor');
 	intTer=setInterval("resetEditor()",50);
@@ -12,7 +9,8 @@ $(function(){
 	});
 	//save
 	$("#save").click(function(){
-		alert(UE.getEditor('editor').getContent());
+		$("#content").val(UE.getEditor('editor').getContent());
+		$("#addForm").submit();
 	});
 });
 function resetEditor(){
