@@ -30,14 +30,9 @@ public class ArticleController{
 	}
 	@RequestMapping(value="/addArticle")
 	public ModelAndView addArticle(Article article){
-System.out.println("addArticle********************************");
-System.out.println("article.id" + article.getId());
-System.out.println("article.title" + article.getTitle());
-System.out.println("article.type" + article.getType());
-System.out.println("article.content" + article.getContent());
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
-		mv.setViewName("index");
+		mv.setViewName("/junxun/public/prompt");
 		try{
 			articleService.addArticle(article);
 			res.setSuccessed("新增成功！", 1);
@@ -46,26 +41,11 @@ System.out.println("article.content" + article.getContent());
 			log.error("addArticle", e);
 		}
 		mv.addObject("res", res);
+		mv.addObject("nextPage","/article/beforeAddArticle.action");
+		mv.addObject("nextPageBtn","再来一篇");
 		return mv;
 	}
 	
-	
-	
-	@RequestMapping("/listContent")
-	public ModelAndView listContent(){
-		try{
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("message", "hello world!");
-		mv.setViewName("index");
-		return mv;
-	}
-
-
-
 	public ArticleService getArticleService() {
 		return articleService;
 	}
