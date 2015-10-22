@@ -25,7 +25,9 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-8" id="centerDiv">
-			<jsp:include page="/article/getAllArticle/xunlian.action"></jsp:include>
+			<jsp:include page="/article/getAllArticle.action">
+				<jsp:param value="xunlian" name="menu"/>
+			</jsp:include>
 		</div>
 		<div class="col-lg-4">
 			<div id="weiboDiv"></div>

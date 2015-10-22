@@ -11,6 +11,7 @@ import com.junxun.entity.Article;
 import com.junxun.entity.Res;
 import com.junxun.service.ArticleService;
 import com.junxun.util.Page;
+import com.junxun.util.QueryParm;
 @RequestMapping(value="/article")
 @Controller
 public class ArticleController{
@@ -73,12 +74,19 @@ public class ArticleController{
 	 * @author Panyk
 	 * @date 2015年10月21日
 	 */
+	/*
+	//这是用url传参
 	@RequestMapping(value="/getAllArticle/{menu}")
 	public ModelAndView getAllArticle(Page page,@PathVariable String menu){
+		System.out.println("**************"+ menu);
+	*/
+	@RequestMapping(value="/getAllArticle")
+	public ModelAndView getAllArticle(Page page,QueryParm qp){
+		System.out.println("**************"+ qp.getMenu());
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
-			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page));
+			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page, qp));
 		}catch(Exception e){
 			res.setFailed("翻页查询异常！");
 			log.error("getAllArticle", e);

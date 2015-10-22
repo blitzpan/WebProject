@@ -44,11 +44,11 @@
 					<label for="type" class="col-sm-2 control-label">分类：</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="type" name="type">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
+							<option value="xunlian">训练</option>
+							<option value="neiwu">内务</option>
+							<option value="jiaoyu">教育</option>
+							<option value="yinshi">饮食</option>
+							<option value="fushi">服饰</option>
 						</select>
 					</div>
 				</div>
