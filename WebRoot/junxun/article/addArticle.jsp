@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<%=path %>/junxun/css/mainStyle.css">  
 <script src="<%=path %>/junxun/js/jquery-2.1.4.js"></script>
 <script src="<%=path %>/junxun/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script src="<%=path %>/junxun/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.all.min.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
@@ -35,29 +36,52 @@
 				<input id="content" name="content" type="hidden" />
 				<input id="uid" name="uid" type="hidden" value="12356"/>
 				<div class="form-group">
-					<label for="title" class="col-sm-2 control-label">标题：</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="title" name="title" placeholder="标题">
-					</div>
-				</div>
-				<div class="form-group">
 					<label for="type" class="col-sm-2 control-label">分类：</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="type" name="type">
-							<option value="xunlian">训练</option>
+							<optgroup label="训练"></optgroup>
+							<option value="xunlian">日常训练</option>
 							<option value="neiwu">内务</option>
 							<option value="jiaoyu">教育</option>
+							<optgroup label="健康"></optgroup>
 							<option value="yinshi">饮食</option>
 							<option value="fushi">服饰</option>
+							<option value="zhusu">住宿</option>
+							<option value="fangshai">防晒</option>
+							<optgroup label="军训感悟"></optgroup>
+							<option value="kouhao">军训口号</option>
+							<option value="zuowhen">军训作文</option>
+							<optgroup label="军中笑料"></optgroup>
+							<option value="joke">军中笑料</option>
+							<optgroup label="军歌嘹亮"></optgroup>
+							<option value="song">军歌嘹亮</option>
+							<optgroup label="青春年华"></optgroup>
+							<option value="pic">青春年华</option>
+							<optgroup label="树洞"></optgroup>
+							<option value="secret">树洞</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<script id="editor" type="text/plain" class="col-sm-12" style="height:500px"></script>
+					<label for="title" class="col-sm-2 control-label">标题：</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="title" name="title" maxlength="64" placeholder="标题">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="summary" class="col-sm-2 control-label">简介：</label>
+					<div class="col-sm-10">
+						<textarea id="summary" name="summary" maxlength="20" class="form-control" placeholder="简介为空则根据正文自动生成"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<script id="editor" type="text/plain" style="height:500px"></script>
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-1">
-						<button id="save" type="button" class="btn btn-default">保存</button>
+						<button id="save" type="button" class="btn btn-primary">保存</button>
 					</div>
 					<div class="col-sm-offset-1 col-sm-8">
 						<button id="reset" type="button" class="btn btn-danger">重置</button>

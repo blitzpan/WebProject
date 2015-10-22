@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>首页</title>
+  <title>军训</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/junxun/bootstrap-3.3.5-dist/css/bootstrap.min.css">  
@@ -23,7 +23,9 @@
 	<div id="navDiv"></div>
 	<div class="row">
 		<div class="col-lg-8" id="centerDiv">
-			<jsp:include page="/article/getAllArticle/index.action"></jsp:include>
+			<jsp:include page="/article/getAllArticle.action">
+				<jsp:param value="index" name="menu"/>
+			</jsp:include>
 		</div>
 		<div class="col-lg-4">
 			<div id="weiboDiv"></div>

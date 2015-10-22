@@ -1,8 +1,6 @@
-var intTer;
 $(function(){
 	//show and reset UEdit
 	UE.getEditor('editor');
-	intTer=setInterval("resetEditor()",50);
 	//reset
 	$("#reset").click(function(){
 		UE.getEditor('editor').setContent('', false);
@@ -10,13 +8,19 @@ $(function(){
 	//save
 	$("#save").click(function(){
 		$("#content").val(UE.getEditor('editor').getContent());
-		$("#addForm").submit();
+		if($.trim($("#summary").val())==''){
+			$("#summary").val(UE.getEditor('editor').getPlainTxt().substr(0,200));
+		}
+		if($.trim($("#summary").val())==''){
+			$.messager.alert("提示", "简介不能为空!");
+			return;
+		}
+		$.messager.model = {
+				ok:{ text: "确定", classed: 'btn-primary' },
+				cancel: { text: "取消", classed: 'btn-danger' }
+		};
+		$.messager.confirm("提示", "确定保存？", function() { 
+			$("#addForm").submit();
+		});		
 	});
 });
-function resetEditor(){
-	console.info(1);
-	if($("#edui1").width()>10){
-		$("#edui1").css("width","");
-		clearInterval(intTer);
-	}
-}

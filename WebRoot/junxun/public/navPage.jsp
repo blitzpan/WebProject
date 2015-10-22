@@ -42,17 +42,18 @@
 		<li><a href="/junxun/song.jsp">军歌嘹亮</a></li>
 		<li><a href="/junxun/pic.jsp">青春年华</a></li>
 		<li><a href="/junxun/secret.jsp">树洞</a></li>
+		<li><a href="/article/beforeAddArticle.action" target="_blank">投稿</a></li>
 	  </ul>
-		  <form class="navbar-form navbar-right" role="search">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="搜索">
-				<span class="input-group-btn">
-					<button type="submit" class="btn btn-default">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
-			</div>
-		  </form>
+	  <form class="navbar-form navbar-right" role="search">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="搜索">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-default">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		</div>
+	  </form>
 	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
