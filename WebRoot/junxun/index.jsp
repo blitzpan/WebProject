@@ -20,7 +20,9 @@
 	<div class="row" id="logoDiv"></div>
 	<div id="navDiv"></div>
 	<div class="row">
-		<div class="col-lg-8" id="centerDiv"></div>
+		<div class="col-lg-8" id="centerDiv">
+			<jsp:include page="/article/getAllArticle.action"></jsp:include>
+		</div>
 		<div class="col-lg-4">
 			<div id="weiboDiv"></div>
 			<div id="recentDiv"></div>

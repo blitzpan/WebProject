@@ -74,10 +74,10 @@ public class ArticleController{
 	 */
 	@RequestMapping(value="/getAllArticle")
 	public ModelAndView getAllArticle(Page page){
+		System.out.println("Page="+page);
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
-			page = page==null?new Page():page;
 			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page));
 		}catch(Exception e){
 			res.setFailed("翻页查询异常！");
