@@ -24,7 +24,9 @@
 		</li>
 	</c:if>
 	<c:forEach begin="${page.startPage }" end="${page.endPage }" var="i">
-		<li><a href="?pageNo=${i }">${i }</a></li>
+		<li
+			<c:if test="${i==page.pageNo }">class="disabled"</c:if>
+		><a href="?pageNo=${i }">${i }</a></li>
 	</c:forEach>
 	<c:if test="${page.hasNext }">
 		<li>
