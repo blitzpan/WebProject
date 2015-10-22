@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%String path = request.getContextPath();%>
-<%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%> 
+<%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,12 @@
 <body>
 <div class="container">
 	<div class="row" id="logoDiv"></div>
-	<div id="navDiv"></div>
+	<div id="navDiv">
+		<jsp:include page="./public/navPage.jsp"></jsp:include>
+	</div>
 	<div class="row">
 		<div class="col-lg-8" id="centerDiv">
-			<jsp:include page="/article/getAllArticle/index.action"></jsp:include>
+			<jsp:include page="/article/getAllArticle/xunlian.action"></jsp:include>
 		</div>
 		<div class="col-lg-4">
 			<div id="weiboDiv"></div>

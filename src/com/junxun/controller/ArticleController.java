@@ -3,6 +3,7 @@ package com.junxun.controller;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -72,9 +73,8 @@ public class ArticleController{
 	 * @author Panyk
 	 * @date 2015年10月21日
 	 */
-	@RequestMapping(value="/getAllArticle")
-	public ModelAndView getAllArticle(Page page){
-		System.out.println("Page="+page);
+	@RequestMapping(value="/getAllArticle/{menu}")
+	public ModelAndView getAllArticle(Page page,@PathVariable String menu){
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
