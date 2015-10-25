@@ -1,6 +1,7 @@
 package com.junxun.dao;
 
 import java.util.List;
+import java.util.Vector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.junxun.entity.Article;
 import com.junxun.util.Page;
 import com.junxun.util.PageUtil;
+import com.junxun.util.QueryParm;
 @Repository
 public class ArticleDao {
 	@Autowired
@@ -38,9 +40,20 @@ public class ArticleDao {
 	 * @author Panyk
 	 * @date 2015年10月21日
 	 */
-	public List getAllArticle(Page page) throws Exception{
-		String sql = "SELECT * from jx_article";
-		page.setTotalCount(jdbcTemplate.queryForObject(PageUtil.appendCount(sql), Integer.class));
-		return jdbcTemplate.query(PageUtil.appendPage(page, sql), new BeanPropertyRowMapper(Article.class));
+	public List getAllArticle(Page page, QueryParm qp) throws Exception{
+		String sql = "SELECT * from jx_article where 1=1";
+		Vector values = new Vector();
+		if(qp.getMenu()!=null && qp.getMenu().equals("index")){
+			
+		}else if(qp.getMenu() != null){
+			sql += " and type like ?";
+			values.add("%"+qp.getMenu()+"%");
+		}
+		if(qp.getTag() != null){
+			sql += " and tag like ?";
+			values.add("%"+qp.getTag()+"%");
+		}
+		page.setTotalCount(jdbcTemplate.queryForObject(PageUtil.appendCount(sql), Integer.class, values.toArray()));
+		return jdbcTemplate.query(PageUtil.appendPage(page, sql), new BeanPropertyRowMapper(Article.class), values.toArray());
 	}
 }

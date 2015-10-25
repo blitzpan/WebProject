@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.junxun.dao.ArticleDao;
 import com.junxun.entity.Article;
 import com.junxun.util.Page;
+import com.junxun.util.QueryParm;
 
 @Service
 @Transactional
@@ -41,7 +42,7 @@ public class ArticleService {
 	 * @author Panyk
 	 * @date 2015年10月21日
 	 */
-	public List getAllArticle(Page page) throws Exception{
-		return articleDao.getAllArticle(page);
+	public List getAllArticle(Page page, QueryParm qp) throws Exception{
+		return articleDao.getAllArticle(page, qp);
 	}
 }

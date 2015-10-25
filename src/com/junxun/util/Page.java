@@ -34,17 +34,8 @@ public class Page{
 		//计算翻页栏的起始页和结束页
 		startPage = pageNo - 4;
 		endPage = pageNo + 5;
-		
-		
-		
 		startPage = startPage<1 ? 1:startPage;
 		endPage = endPage>pageSum ? pageSum:endPage;
-		
-		
-		System.out.println("pageNo="+pageNo);
-		System.out.println("startPage"+startPage);
-		System.out.println("endPage="+endPage);
-		System.out.println("pageSum="+pageSum);
 	}
 	/**
 	 * 取总记录数.
@@ -67,16 +58,23 @@ public class Page{
 	public int getEndPage() {
 		return endPage;
 	}
-	public boolean isHasNext() {
+	public boolean getHasNext() {
 		return hasNext;
 	}
-	public void setHasNext(boolean hasNext) {
-		this.hasNext = hasNext;
-	}
-	public boolean isHasPrevious() {
+	public boolean getHasPrevious() {
 		return hasPrevious;
 	}
-	public void setHasPrevious(boolean hasPrevious) {
-		this.hasPrevious = hasPrevious;
+	@Override
+	public String toString() {
+		return "Page [pageSize=" + pageSize + ", pageNo=" + pageNo + ", pageSum=" + pageSum + ", hasNext=" + hasNext
+				+ ", hasPrevious=" + hasPrevious + ", start=" + start + ", totalCount=" + totalCount + ", startPage="
+				+ startPage + ", endPage=" + endPage + ", result=" + result + ", params=" + params + ", paramsStr="
+				+ paramsStr + ", data=" + data + "]";
+	}
+	public int getPageNo() {
+		return pageNo;
+	}
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
 	}
 }

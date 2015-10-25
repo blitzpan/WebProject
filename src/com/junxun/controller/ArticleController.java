@@ -3,6 +3,7 @@ package com.junxun.controller;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,6 +11,7 @@ import com.junxun.entity.Article;
 import com.junxun.entity.Res;
 import com.junxun.service.ArticleService;
 import com.junxun.util.Page;
+import com.junxun.util.QueryParm;
 @RequestMapping(value="/article")
 @Controller
 public class ArticleController{
@@ -72,13 +74,19 @@ public class ArticleController{
 	 * @author Panyk
 	 * @date 2015年10月21日
 	 */
+	/*
+	//这是用url传参
+	@RequestMapping(value="/getAllArticle/{menu}")
+	public ModelAndView getAllArticle(Page page,@PathVariable String menu){
+		System.out.println("**************"+ menu);
+	*/
 	@RequestMapping(value="/getAllArticle")
-	public ModelAndView getAllArticle(Page page){
+	public ModelAndView getAllArticle(Page page,QueryParm qp){
+		System.out.println("**************"+ qp.getMenu());
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
-			page = page==null?new Page():page;
-			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page));
+			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page, qp));
 		}catch(Exception e){
 			res.setFailed("翻页查询异常！");
 			log.error("getAllArticle", e);

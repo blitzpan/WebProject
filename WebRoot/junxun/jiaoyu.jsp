@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%String path = request.getContextPath();%>
-<%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%> 
+<%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>军训</title>
+  <title>首页</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/junxun/bootstrap-3.3.5-dist/css/bootstrap.min.css">  
@@ -20,11 +20,13 @@
 <body>
 <div class="container">
 	<div class="row" id="logoDiv"></div>
-	<div id="navDiv"></div>
+	<div id="navDiv">
+		<jsp:include page="./public/navPage.jsp"></jsp:include>
+	</div>
 	<div class="row">
 		<div class="col-lg-8" id="centerDiv">
 			<jsp:include page="/article/getAllArticle.action">
-				<jsp:param value="index" name="menu"/>
+				<jsp:param value="jiaoyu" name="menu"/>
 			</jsp:include>
 		</div>
 		<div class="col-lg-4">
