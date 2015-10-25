@@ -58,15 +58,6 @@ public class Page{
 	public int getPageSize() {
 		return pageSize;
 	}
-	/**
-	 * 该页是否有上一页.
-	 */
-	public boolean hasPreviousPage() {
-		return hasPrevious;
-	}
-	public boolean hasNextPage(){
-		return hasNext;
-	}
 	public int getStart(){
 		return start;
 	}
@@ -75,5 +66,17 @@ public class Page{
 	}
 	public int getEndPage() {
 		return endPage;
+	}
+	public boolean isHasNext() {
+		return hasNext;
+	}
+	public void setHasNext(boolean hasNext) {
+		this.hasNext = hasNext;
+	}
+	public boolean isHasPrevious() {
+		return hasPrevious;
+	}
+	public void setHasPrevious(boolean hasPrevious) {
+		this.hasPrevious = hasPrevious;
 	}
 }
