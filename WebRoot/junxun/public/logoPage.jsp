@@ -1,4 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<style>
+.weibo{
+	background-image: url(/junxun/image/weibo_32x32.png);
+	background-repeat:no-repeat;
+	display:inline-block;
+	width:32px;
+	height:32px;
+	margin:5px;
+	vertical-align:middle;
+}
+.qq{
+	background-image: url(/junxun/image/qq_32x32.png);
+	background-repeat:no-repeat;
+	display:inline-block;
+	width:32px;
+	height:32px;
+	margin:5px;
+	vertical-align:middle;
+}
+.thirdPart{
+	float:right;
+	margin:5px;
+	float:right;
+}
+</style> 
 <div class="col-lg-8">
 	<div class="header-logo">
 		<img class="img-responsive" src="../junxun/image/logo.PNG" alt="logo"/>
@@ -8,4 +33,10 @@
 		<h5><!--等我练出6块腹肌就去找领导涨工资--></h5>
 	</div>
 </div>
-<div class="col-lg-4"></div>
+<div class="col-lg-4">
+	<div class="thirdPart">
+		你好，请登录！
+		<a href="" class="qq" title="使用微博帐号登录" rel="nofollow" data-no-instant=""></a>
+		<a href="https://api.weibo.com/oauth2/authorize?client_id=4038195090&response_type=code&redirect_uri=http://www.junxun.win/weibo/weiboLogin.action" class="weibo" title="使用微博帐号登录" rel="nofollow" data-no-instant=""></a>
+	</div>
+</div>

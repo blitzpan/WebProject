@@ -13,7 +13,7 @@ import weibo4j.org.json.JSONObject;
  * @author sinaWeibo
  * 
  */
-public class Tag extends WeiboResponse implements java.io.Serializable {
+public class Tag extends WeiboResponse {
 
 	private static final long serialVersionUID = 2177657076940291492L;
 
@@ -24,13 +24,10 @@ public class Tag extends WeiboResponse implements java.io.Serializable {
 	private String weight;
 
 	public Tag(JSONObject json) throws WeiboException, JSONException {			
-			/*if (!json.getString("id").isEmpty()) {
-				id = json.getString("id"); 
-			}*/
-			if (json.getString("id")!=null && !json.getString("id").equals("")) {
+			if (!json.getString("id").isEmpty()) {
 				id = json.getString("id"); 
 			}
-			if(json.getString("value")!=null && !json.getString("value").equals("")) {
+			if(!json.getString("value").isEmpty()) {
 				value = json.getString("value");
 			}else {
 				Iterator<String> keys = json.sortedKeys();

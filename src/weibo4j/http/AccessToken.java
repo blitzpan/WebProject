@@ -14,7 +14,7 @@ public class AccessToken extends WeiboResponse implements Serializable {
 	private String accessToken;
 	private String expireIn;
 	private String refreshToken;
-	private String uid;
+	public String uid;
 	public AccessToken(Response res) throws WeiboException{
 		super(res);
 		JSONObject json =res.asJSONObject();

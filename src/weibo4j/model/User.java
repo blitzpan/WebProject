@@ -40,7 +40,7 @@ import weibo4j.org.json.JSONObject;
 /**
  * A data class representing Basic user information element
  */
-public class User extends WeiboResponse implements java.io.Serializable {
+public class User extends WeiboResponse {
 
 	private static final long serialVersionUID = -332738032648843482L;
 	private String id;                      //用户UID
@@ -215,6 +215,11 @@ public class User extends WeiboResponse implements java.io.Serializable {
 		super();
 		init(json);
 	}
+	
+	public User(Response res ) throws WeiboException {
+		super(res);
+		init(res.asJSONObject());
+	}
 
 	private void init(JSONObject json) throws WeiboException {
 		if(json!=null){
@@ -246,10 +251,7 @@ public class User extends WeiboResponse implements java.io.Serializable {
 				onlineStatus = json.getInt("online_status");
 				statusId = json.getString("status_id");
 				biFollowersCount = json.getInt("bi_followers_count");
-				/*if(!json.getString("remark").isEmpty()){					
-					remark = json.getString("remark");
-				}*/
-				if(json.getString("remark")!=null && !json.getString("remark").equals("")){					
+				if(!json.getString("remark").isEmpty()){					
 					remark = json.getString("remark");
 				}
 				lang = json.getString("lang");

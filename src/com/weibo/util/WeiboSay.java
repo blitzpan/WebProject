@@ -16,11 +16,10 @@ import weibo4j.Timeline;
 import weibo4j.http.ImageItem;
 import weibo4j.model.Status;
 import weibo4j.model.WeiboException;
-import weibo4j.timeline.Upload;
-import weibo4j.util.Log;
 import weibo4j.util.URLEncodeUtils;
 @Service
 public class WeiboSay extends Thread {
+	/*
 	@Autowired
 	private SourceDao sourceDao;
 	@Autowired
@@ -59,7 +58,7 @@ public class WeiboSay extends Thread {
 					}
 				}
 			}
-			/*遍历access_token发送消息*/	
+			//遍历access_token发送消息	
 			String tip = "#独乐乐不如众乐乐#";
 			for(int i = 0; i < wbul.size(); i++){
 				WeiboUser wbu = wbul.get(i);
@@ -135,4 +134,5 @@ public class WeiboSay extends Thread {
 	public void setSource(Source source) {
 		this.source = source;
 	}
+	*/
 }

@@ -34,10 +34,10 @@ package weibo4j.model;
 public class Paging implements java.io.Serializable {
 	private static final long serialVersionUID = -3285857427993796670L;
    
-	private int page = -1;              //Ò³Âë¡£×¢Òâ£º×î¶à·µ»Ø200Ìõ·ÖÒ³ÄÚÈİ¡£
-    private int count = -1;             //Ö¸¶¨Ã¿Ò³·µ»ØµÄ¼ÇÂ¼ÌõÊı¡£
-    private long sinceId = -1;          //ÈôÖ¸¶¨´Ë²ÎÊı£¬ÔòÖ»·µ»ØID±Èsince_id´ó£¨¼´±Èsince_id·¢±íÊ±¼äÍíµÄ£©µÄÎ¢²©ÏûÏ¢¡£
-    private long maxId = -1;            //ÈôÖ¸¶¨´Ë²ÎÊı£¬Ôò·µ»ØIDĞ¡ÓÚ»òµÈÓÚmax_idµÄÎ¢²©ÏûÏ¢
+	private int page = -1;              //é¡µç ã€‚æ³¨æ„ï¼šæœ€å¤šè¿”å›200æ¡åˆ†é¡µå†…å®¹ã€‚
+    private int count = -1;             //æŒ‡å®šæ¯é¡µè¿”å›çš„è®°å½•æ¡æ•°ã€‚
+    private long sinceId = -1;          //è‹¥æŒ‡å®šæ­¤å‚æ•°ï¼Œåˆ™åªè¿”å›IDæ¯”since_idå¤§ï¼ˆå³æ¯”since_idå‘è¡¨æ—¶é—´æ™šçš„ï¼‰çš„å¾®åšæ¶ˆæ¯ã€‚
+    private long maxId = -1;            //è‹¥æŒ‡å®šæ­¤å‚æ•°ï¼Œåˆ™è¿”å›IDå°äºæˆ–ç­‰äºmax_idçš„å¾®åšæ¶ˆæ¯
 
     public Paging() {
     }
