@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String path = request.getContextPath();%>
-<%@ page import="java.util.*,com.junxun.entity.Res,com.junxun.entity.Article" %>
+<%@ page import="java.util.*,com.junxun.entity.Res,com.junxun.entity.Article,com.junxun.util.Page" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="panel panel-default listContent">
 	<ul class="list-group">
