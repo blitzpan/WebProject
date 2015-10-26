@@ -8,7 +8,7 @@
 			<li class="list-group-item">
 				<h3><a href="">${item.title }</a></h3>
 				<p>
-				${item.content }
+				${item.summary }
 				</p>
 			</li>
 		</c:forEach>

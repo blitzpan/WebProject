@@ -5,14 +5,16 @@ public class Article {
 	private String uid = "0";
 	private String type = "0";
 	private String title;
+	private String summary;
 	private String content;
 	private String cjsj;
 	private String state = "1";
 	
+	
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", uid=" + uid + ", type=" + type + ", title=" + title + ", content=" + content
-				+ ", cjsj=" + cjsj + ", state=" + state + "]";
+		return "Article [id=" + id + ", uid=" + uid + ", type=" + type + ", title=" + title + ", summary=" + summary
+				+ ", content=" + content + ", cjsj=" + cjsj + ", state=" + state + "]";
 	}
 	public String getId() {
 		return id;
@@ -55,6 +57,12 @@ public class Article {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 }
