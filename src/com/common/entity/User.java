@@ -4,12 +4,13 @@ public class User {
 	private String id;
 	private String third;//来自哪个平台，1微博；2qq
 	private String thirdUid;//第三方用户id
+	private String accessToken;//access token
 	private String name;//用户登录名
 	private String nickName;//用户昵称
+	private String password;//密码
 	private String description;//简介
 	private String imgUrl;//头像url
 	private String gender;//性别：m女；f男；n为止
-	private String at;//access token
 	
 	public String getId() {
 		return id;
@@ -59,11 +60,17 @@ public class User {
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
-	public String getAt() {
-		return at;
+	public String getAccessToken() {
+		return accessToken;
 	}
-	public void setAt(String at) {
-		this.at = at;
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

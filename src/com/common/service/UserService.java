@@ -4,10 +4,11 @@ import java.util.UUID;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.common.dao.UserDao;
 import com.common.entity.User;
-
+@Service
 public class UserService {
 	Logger log = Logger.getLogger(UserService.class);
 	@Autowired
@@ -29,7 +30,8 @@ public class UserService {
 			user.setId(uuid.toString().replaceAll("-", ""));
 			userDao.addUser(user);
 		}else{//已存在，更新
-			
+			user.setId(u.getId());
+			userDao.updateUserForThird(user);
 		}
 		return user;
 	}

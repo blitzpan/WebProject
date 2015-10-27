@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*,com.junxun.entity.Res,com.common.entity.User" %>
 <style>
 .weibo{
 	background-image: url(/junxun/image/weibo_32x32.png);
@@ -35,7 +37,12 @@
 </div>
 <div class="col-lg-4">
 	<div class="thirdPart">
-		你好，请登录！
+		<c:if test="${USERNAME!='' }">
+			您好，${USERNAME }
+		</c:if>
+		<c:if test="${USERNAME=='' }">
+			你好，请登录！
+		</c:if>
 		<a href="" class="qq" title="使用微博帐号登录" rel="nofollow" data-no-instant=""></a>
 		<a href="https://api.weibo.com/oauth2/authorize?client_id=4038195090&response_type=code&redirect_uri=http://www.junxun.win/weibo/weiboLogin.action" class="weibo" title="使用微博帐号登录" rel="nofollow" data-no-instant=""></a>
 	</div>

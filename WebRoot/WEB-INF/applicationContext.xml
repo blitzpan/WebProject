@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<context:annotation-config></context:annotation-config>
 	<!-- 扫描注解 -->
-	<context:component-scan base-package="com.novel.*,com.weibo.*,com.junxun.*"></context:component-scan>
+	<context:component-scan base-package="com.novel.*,com.weibo.*,com.junxun.*,com.common.*"></context:component-scan>
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" /> <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
 		<property name="suffix" value=".jsp"/>

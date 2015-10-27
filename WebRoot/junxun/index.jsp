@@ -21,8 +21,12 @@
 </head>
 <body>
 <div class="container">
-	<div class="row" id="logoDiv"></div>
-	<div id="navDiv"></div>
+	<div class="row" id="logoDiv">
+		<jsp:include page="/junxun/public/logoPage.jsp"/>
+	</div>
+	<div id="navDiv">
+		<jsp:include page="/junxun/public/navPage.jsp"/>
+	</div>
 	<div class="row">
 		<div class="col-lg-8" id="centerDiv">
 			<jsp:include page="/article/getAllArticle.action">
