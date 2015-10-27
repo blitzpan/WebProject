@@ -8,6 +8,8 @@
   <meta charset="utf-8">
   <!-- 下面一段是微博的，不能删除 -->
   <meta property="wb:webmaster" content="56b79ea319c9f46b" />
+  <!-- qq登录 -->
+  <meta property="qc:admins" content="14601241016256056671672560567164506230" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/junxun/bootstrap-3.3.5-dist/css/bootstrap.min.css">  
   <link rel="stylesheet" href="/junxun/css/mainStyle.css">  
