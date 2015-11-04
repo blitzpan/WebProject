@@ -11,11 +11,13 @@
 <script src="<%=path %>/junxun/js/jquery-2.1.4.js"></script>
 <script src="<%=path %>/junxun/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 <script src="<%=path %>/junxun/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/ueditor.all.min.js"> </script>
+
+<link rel="stylesheet" type="text/css" href="<%=path %>/junxun/ueditor1_2_6_1/themes/default/css/ueditor.css"/>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/ueditor1_2_6_1/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/ueditor1_2_6_1/ueditor.all.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/uedit/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/ueditor1_2_6_1/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/article/js/addArticle.js"></script>
 <style type="text/css">
 </style>
