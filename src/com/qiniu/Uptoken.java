@@ -1,24 +1,20 @@
 package com.qiniu;
 
 import java.util.UUID;
+
 import org.json.JSONException;
-import com.qiniu.Mac;
-import com.qiniu.Config;
-import com.qiniu.PutPolicy;
+
+import com.qiniu.util.Auth;
+import com.qiniu.util.StringMap;
 
 public class Uptoken {
-	public final static String makeUptoken() throws AuthException,
-			JSONException {
-
-		Mac mac = new Mac(Config.ACCESS_KEY, Config.SECRET_KEY);
-		String bucketName = "webproject";
-		PutPolicy putPolicy = new PutPolicy(bucketName);
-		// 可以根据自己需要设置过期时间,sdk默认有设置，具体看源码
-		// putPolicy.expires = getDeadLine();
-		putPolicy.returnUrl = "http://127.0.0.1:8081/junxun/ueditor1_2_6_1/jsp/QiNiuCallback.jsp";
-		putPolicy.returnBody = "{\"name\": $(fname),\"size\": \"$(fsize)\",\"w\": \"$(imageInfo.width)\",\"h\": \"$(imageInfo.height)\",\"key\":$(etag)}";
-		String uptoken = putPolicy.token(mac);
-		return uptoken;
+	public final static String makeUptoken() throws AuthException, JSONException {
+		Auth auth = Config.auth;
+		String token = auth.uploadToken(Config.bucket, null, 3600, new StringMap()
+		         .put("returnUrl", "http://127.0.0.1:8081/junxun/ueditor1_2_6_1/jsp/QiNiuCallback.jsp").putNotEmpty("callbackHost", "")
+		         .put("returnBody", "{\"name\": $(fname),\"size\": \"$(fsize)\",\"w\": \"$(imageInfo.width)\",\"h\": \"$(imageInfo.height)\",\"key\":$(etag)}"));
+		System.out.println("token=" + token);
+		return token;
 	}
 
 	/**
@@ -26,5 +22,7 @@ public class Uptoken {
 	 */
 	public static String getUUID() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
+	}
+	public static void main(String[] args) {
 	}
 }
