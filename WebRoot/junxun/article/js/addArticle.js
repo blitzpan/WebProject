@@ -7,9 +7,13 @@ $(function(){
 	});
 	//save
 	$("#save").click(function(){
+		if($("#title").val().trim()==''){
+			$.messager.alert('提示',"标题不能为空！");
+			return;
+		}
 		$("#content").val(UE.getEditor('editor').getContent());
 		if($.trim($("#summary").val())==''){
-			$("#summary").val(UE.getEditor('editor').getPlainTxt().substr(0,200));
+			$("#summary").val(UE.getEditor('editor').getContentTxt().substr(0,200));
 		}
 		if($.trim($("#summary").val())==''){
 			$.messager.alert("提示", "简介不能为空!");
