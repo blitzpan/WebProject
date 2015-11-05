@@ -71,6 +71,20 @@ public class Uploader {
 		tmp.put("UNKNOWN", "未知错误");
 	
 	}
+	public void qiniuUpFiles(byte[] bytes) throws Exception {
+		Auth auth = Config.auth;
+        String token = auth.uploadToken(Config.bucket);
+        UploadManager um = new UploadManager();
+        try {
+            Response res = um.put(bytes, fileName, token);
+        } catch (QiniuException e) {
+            e.printStackTrace();
+            throw e;
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        }
+	}
 
 	public void upload() throws Exception {
 		boolean isMultipart = ServletFileUpload.isMultipartContent(this.request);
@@ -98,20 +112,7 @@ public class Uploader {
 					this.fileName = this.getName(this.originalName);
 					this.type = this.getFileExt(this.fileName);
 					this.url = Config.domain + this.fileName;
-					System.out.println(url);
-					
-					Auth auth = Config.auth;
-			        String token = auth.uploadToken(Config.bucket);
-			        UploadManager um = new UploadManager();
-			        try {
-			            Response res = um.put(fi.get(), fileName, token);
-			        } catch (QiniuException e) {
-			            // TODO Auto-generated catch block
-			            e.printStackTrace();
-			        } catch (IOException e) {
-			            // TODO Auto-generated catch block
-			            e.printStackTrace();
-			        }
+					qiniuUpFiles(fi.get());
 			        this.state=this.errorInfo.get("SUCCESS");
 					//UE中只会处理单张上传，完成后即退出
 					break;
@@ -136,20 +137,12 @@ public class Uploader {
 		String savePath = this.getFolder(this.savePath);
 		String base64Data = this.request.getParameter(fieldName);
 		this.fileName = this.getName("test.png");
-		this.url = savePath + "/" + this.fileName;
+		this.url = Config.domain + this.fileName;
 		BASE64Decoder decoder = new BASE64Decoder();
 		try {
 			File outFile = new File(this.getPhysicalPath(this.url));
-			OutputStream ro = new FileOutputStream(outFile);
 			byte[] b = decoder.decodeBuffer(base64Data);
-			for (int i = 0; i < b.length; ++i) {
-				if (b[i] < 0) {
-					b[i] += 256;
-				}
-			}
-			ro.write(b);
-			ro.flush();
-			ro.close();
+			qiniuUpFiles(b);
 			this.state=this.errorInfo.get("SUCCESS");
 		} catch (Exception e) {
 			this.state = this.errorInfo.get("IO");

@@ -191,7 +191,7 @@
              , 'touppercase', 'tolowercase', '|'
              , 'link', 'unlink',  '|'
              , 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|'
-             , 'insertimage', 'emotion',  'insertvideo',  'attachment', 'map',  'insertframe', 'template', 'background', '|'
+             , 'insertimage','scrawl', 'emotion',  'insertvideo',  'attachment', 'map',  'insertframe', 'template', 'background', '|'
              , 'horizontal', 'date', 'time', 'spechars',   '|'
              , 'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|'
              , 'preview', 'searchreplace' ]

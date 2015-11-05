@@ -631,7 +631,7 @@ function exec(scrawlObj) {
                         responseObj = eval("(" + xhr.responseText + ")");
                         if (responseObj.state == "SUCCESS") {
                             var imgObj = {},
-                                url = editor.options.scrawlPath + responseObj.url;
+                                url = responseObj.url;
                             imgObj.src = url;
                             imgObj._src = url;
                             editor.execCommand("insertImage", imgObj);

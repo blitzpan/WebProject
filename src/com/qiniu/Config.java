@@ -23,4 +23,5 @@ public class Config {
 	public static final String bucket = "webproject";
 	public static final String key = "java-duke.svg";
 	public static final String domain = "http://7xnzc3.com1.z0.glb.clouddn.com/";
+	public static final String returnUrl = "http://127.0.0.1:8081/junxun/ueditor1_2_6_1/jsp/QiNiuCallback.jsp";
 }
