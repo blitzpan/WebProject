@@ -96,11 +96,7 @@
 
     <script type="text/javascript">
     	$(function(){
-    		alert('before token');
     		$.get("/junxun/ueditor1_2_6_1/jsp/Uptoken.jsp", function(data) {
-    			alert(data["token"]);
-    			console.log("token="+data["token"]);
-    			console.log(data["token"]);
     			$("#qiniu_token").val(data["token"]);
     		});
     	});
