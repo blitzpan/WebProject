@@ -49,4 +49,14 @@ ul{
 .navbar .nav > li:hover .dropdown-menu {
 	display: block;
 }
-
+//article详细页面
+.articleTitle{
+}
+.articleOther{
+	font-size:12px;
+	font-weight:400;
+	color:rgb(153,153,153);
+	line-height:24px;
+	border-bottom:solid 1px #eee;
+	margin-bottom:10px;
+}

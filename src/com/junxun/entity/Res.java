@@ -14,6 +14,10 @@ public class Res {
 		this.info = info;
 		this.res = res;
 	}
+	public void setSuccessed(Object res){
+		this.state = "1";
+		this.res = res;
+	}
 	public String getState() {
 		return state;
 	}

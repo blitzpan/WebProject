@@ -56,4 +56,31 @@ public class ArticleDao {
 		page.setTotalCount(jdbcTemplate.queryForObject(PageUtil.appendCount(sql), Integer.class, values.toArray()));
 		return jdbcTemplate.query(PageUtil.appendPage(page, sql), new BeanPropertyRowMapper(Article.class), values.toArray());
 	}
+	/**
+	 * @Description:查询一个信息 
+	 * @param @param article
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return Article  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月5日
+	 */
+	public Article getArticle(Article article) throws Exception{
+		Article res = null;
+		StringBuffer sqlB = new StringBuffer("select * from jx_article where 1=1 ");
+		Vector values = new Vector();
+		if(article.getId()!=null){
+			sqlB.append(" and id=?");
+			values.add(article.getId());
+		}
+		sqlB.append(" limit 0,1");
+		try{
+			res = jdbcTemplate.queryForObject(sqlB.toString(), new BeanPropertyRowMapper(Article.class), values.toArray());
+		}catch(Exception e){
+			res = new Article();
+			res.setTitle("额……这篇文章让狗吃了……");
+		}
+		return res;
+	}
 }

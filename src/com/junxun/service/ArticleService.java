@@ -45,4 +45,7 @@ public class ArticleService {
 	public List getAllArticle(Page page, QueryParm qp) throws Exception{
 		return articleDao.getAllArticle(page, qp);
 	}
+	public Article getArticle(Article article) throws Exception{
+		return articleDao.getArticle(article);
+	}
 }

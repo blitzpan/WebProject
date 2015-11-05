@@ -6,7 +6,7 @@
 	<ul class="list-group">
 		<c:forEach var="item" items="${res.res}">
 			<li class="list-group-item">
-				<h3><a href="">${item.title }</a></h3>
+				<h3><a href="/article/showArticle.action?id=${item.id }" target="_blank">${item.title }</a></h3>
 				<p>
 				${item.summary }
 				</p>
