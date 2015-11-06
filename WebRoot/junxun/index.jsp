@@ -37,7 +37,12 @@
 		</div>
 		<div class="col-lg-4">
 			<div id="weiboDiv"></div>
-			<div id="recentDiv"></div>
+			<div id="recentDiv">
+				<jsp:include page="/article/getRecentArtical.action">
+					<jsp:param value="10" name="pageSize"/>
+					<jsp:param value="time" name="sort"/>
+				</jsp:include>
+			</div>
 			<div id="articleFamilyDiv"></div>
 			<div id="monthDiv"></div>
 			<div id="linkDiv"></div>

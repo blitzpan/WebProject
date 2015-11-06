@@ -7,7 +7,6 @@ function loadIndex(){
 //	$('#navDiv').load('./public/navPage.jsp');
 //	$("#logoDiv").load('./public/logoPage.jsp');
 	$("#weiboDiv").load('./weiboPage.html');
-	$("#recentDiv").load('./recentPage.html');
 	$("#articleFamilyDiv").load('./articleFamilyPage.html');
 	$("#monthDiv").load('./monthPage.html');
 	$("#linkDiv").load('./linkPage.html');

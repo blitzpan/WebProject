@@ -41,7 +41,7 @@ public class ArticleDao {
 	 * @date 2015年10月21日
 	 */
 	public List getAllArticle(Page page, QueryParm qp) throws Exception{
-		String sql = "SELECT * from jx_article where 1=1";
+		String sql = "SELECT id,uid,type,title,summary,tag,cjsj from jx_article where 1=1";
 		Vector values = new Vector();
 		if(qp.getMenu()!=null && qp.getMenu().equals("index")){
 			
@@ -52,6 +52,12 @@ public class ArticleDao {
 		if(qp.getTag() != null){
 			sql += " and tag like ?";
 			values.add("%"+qp.getTag()+"%");
+		}
+		String sort = "";
+		if((sort = qp.getSort())!=null){
+			if(sort.equals("time")){
+				sql += " order by cjsj desc";
+			}
 		}
 		page.setTotalCount(jdbcTemplate.queryForObject(PageUtil.appendCount(sql), Integer.class, values.toArray()));
 		return jdbcTemplate.query(PageUtil.appendPage(page, sql), new BeanPropertyRowMapper(Article.class), values.toArray());

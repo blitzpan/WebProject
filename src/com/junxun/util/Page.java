@@ -16,7 +16,13 @@ public class Page{
 	private Map<String, Object> params = new HashMap<String, Object>();
 	private String paramsStr="";
 	private Object data; // 当前页中存放的记录,类型一般为List
-
+	@Override
+	public String toString() {
+		return "Page [pageSize=" + pageSize + ", pageNo=" + pageNo + ", pageSum=" + pageSum + ", hasNext=" + hasNext
+				+ ", hasPrevious=" + hasPrevious + ", start=" + start + ", totalCount=" + totalCount + ", startPage="
+				+ startPage + ", endPage=" + endPage + ", result=" + result + ", params=" + params + ", paramsStr="
+				+ paramsStr + ", data=" + data + "]";
+	}
 	
 	public void setTotalCount(int totalCount){
 		this.totalCount = totalCount;
@@ -64,17 +70,14 @@ public class Page{
 	public boolean getHasPrevious() {
 		return hasPrevious;
 	}
-	@Override
-	public String toString() {
-		return "Page [pageSize=" + pageSize + ", pageNo=" + pageNo + ", pageSum=" + pageSum + ", hasNext=" + hasNext
-				+ ", hasPrevious=" + hasPrevious + ", start=" + start + ", totalCount=" + totalCount + ", startPage="
-				+ startPage + ", endPage=" + endPage + ", result=" + result + ", params=" + params + ", paramsStr="
-				+ paramsStr + ", data=" + data + "]";
-	}
 	public int getPageNo() {
 		return pageNo;
 	}
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 }

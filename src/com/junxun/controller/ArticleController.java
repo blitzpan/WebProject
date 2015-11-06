@@ -95,7 +95,6 @@ public class ArticleController{
 	*/
 	@RequestMapping(value="/getAllArticle")
 	public ModelAndView getAllArticle(Page page,QueryParm qp){
-		System.out.println("**************"+ qp.getMenu());
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
@@ -104,7 +103,6 @@ public class ArticleController{
 			res.setFailed("翻页查询异常！");
 			log.error("getAllArticle", e);
 		}
-		System.out.println(res.getRes());
 		mv.setViewName("/junxun/public/articleList");
 		mv.addObject("res",res);
 		mv.addObject("page", page);
@@ -122,6 +120,28 @@ public class ArticleController{
 		}
 		mv.setViewName("/junxun/article/article");
 		mv.addObject("res", res);
+		return mv;
+	}
+	/**
+	 * @Description:获取最近文章 
+	 * @param @return   
+	 * @return ModelAndView  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月6日
+	 */
+	@RequestMapping(value="/getRecentArtical")
+	public ModelAndView getRecentArtical(Page page,QueryParm qp){
+		ModelAndView mv = new ModelAndView();
+		Res res = new Res();
+		try{
+			res.setSuccessed("最近文章查询成功！", articleService.getAllArticle(page, qp));
+		}catch(Exception e){
+			res.setFailed("最近文章查询查询异常！");
+			log.error("getRecentArtical", e);
+		}
+		mv.setViewName("/junxun/public/recentPage");
+		mv.addObject("res",res);
 		return mv;
 	}
 	public ArticleService getArticleService() {
