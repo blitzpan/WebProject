@@ -99,6 +99,7 @@ public class ArticleController{
 		Res res = new Res();
 		try{
 			res.setSuccessed("翻页查询成功！", articleService.getAllArticle(page, qp));
+			System.out.println(res.getRes());
 		}catch(Exception e){
 			res.setFailed("翻页查询异常！");
 			log.error("getAllArticle", e);
