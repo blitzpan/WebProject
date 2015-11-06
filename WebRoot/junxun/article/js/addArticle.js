@@ -4,6 +4,20 @@ $(function(){
 	//reset
 	$("#reset").click(function(){
 		UE.getEditor('editor').setContent('', false);
+		//测试json代码
+		$.ajax({
+			url:"/user/isLogin.action",
+			type:"POST",
+			dataType: 'json',
+			data:{},
+			success:function(data){
+				alert(data.state);
+				alert(data["a"]);
+				alert(data["b"]);
+			},error: function (XMLHttpRequest, textStatus, errorThrown){
+				alert('发生异常！');
+			}
+		});
 	});
 	//save
 	$("#save").click(function(){

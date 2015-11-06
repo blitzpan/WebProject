@@ -21,19 +21,10 @@ public class Res {
 	public String getState() {
 		return state;
 	}
-	public void setState(String state) {
-		this.state = state;
-	}
 	public String getInfo() {
 		return info;
 	}
-	public void setInfo(String info) {
-		this.info = info;
-	}
 	public Object getRes() {
 		return res;
-	}
-	public void setRes(Object res) {
-		this.res = res;
 	}
 }
