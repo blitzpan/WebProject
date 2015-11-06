@@ -19,3 +19,13 @@ function goPage(page){
 	alert(page);
 	$('#centerDiv').load('./listContent.html');
 }
+//右侧浮动按钮事件
+$(document).on("click","#goTop",function(){
+	$('html,body').animate({scrollTop: '0px'}, 800);
+}).on("click","#goBottom",function(){
+	$('html,body').animate({scrollTop:$('#footDiv').offset().top}, 800);
+}).on("click","#goComments",function(){
+	$('html,body').animate({scrollTop:$('#comments').offset().top}, 800);
+}).on("click","#refresh",function(){
+	location.reload();
+});
