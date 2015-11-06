@@ -18,7 +18,7 @@
   <ul class="pagination pagination-lg" style="margin:0px auto">
   	<c:if test="${page.hasPrevious }">
 		<li>
-	  		<a href="?pageNo=${page.pageNo-1 }" aria-label="Previous">
+	  		<a href="?pageNo=${page.pageNo-5 }" aria-label="Previous">
 				<span aria-hidden="true">&laquo;</span>
 			</a>
 		</li>
@@ -30,7 +30,7 @@
 	</c:forEach>
 	<c:if test="${page.hasNext }">
 		<li>
-		  <a href="?pageNo=${page.pageNo+1 }" aria-label="Next">
+		  <a href="?pageNo=${page.pageNo+5 }" aria-label="Next">
 			<span aria-hidden="true">&raquo;</span>
 		  </a>
 		</li>

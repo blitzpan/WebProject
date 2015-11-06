@@ -32,6 +32,8 @@ public class Page{
 		} else{
 			pageSum = totalCount / pageSize + 1;
 		}
+		pageNo = pageNo < 1? 1:pageNo;
+		pageNo = pageNo > pageSum? pageSum:pageNo;
 		//上一页
 		hasPrevious = pageNo>1;
 		hasNext = pageNo<pageSum;
