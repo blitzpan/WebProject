@@ -1,8 +1,5 @@
 package com.junxun.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -19,14 +16,13 @@ public class UserController{
 	@RequestMapping(value="/isLogin")
 	@ResponseBody  
 	public Object isLogin(HttpSession session){
-		System.out.println("test....................");
 		Res res = new Res();
 		try{
 			String uid = (String) session.getAttribute("USERID");
 			if(uid!=null&&!uid.trim().equals("")){
 				res.setSuccessed(uid);
 			}else{
-				res.setFailed("请登录后再提交！");
+				res.setFailed("请登录后再投稿！");
 			}
 		}catch(Exception e){
 			log.error("isLogin", e);

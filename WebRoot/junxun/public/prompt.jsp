@@ -33,9 +33,9 @@
 			<c:if test="${res.state!='1' }">
 				<div class="alert alert-danger" role="alert">${res.info }</div>
 			</c:if>
-			<p>
-				<a href="${nextPage }" class="btn btn-primary" role="button">${nextPageBtn }</a>
-			</p>
+			<c:if test="nextPage!=''">
+				<p><a href="${nextPage }" class="btn btn-primary" role="button">${nextPageBtn }</a></p>
+			</c:if>
 		</div>
 	</div>
 	<div class="row" id="footDiv">

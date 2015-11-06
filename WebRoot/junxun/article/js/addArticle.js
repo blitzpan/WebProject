@@ -4,23 +4,31 @@ $(function(){
 	//reset
 	$("#reset").click(function(){
 		UE.getEditor('editor').setContent('', false);
-		//测试json代码
+	});
+	//save
+	$("#save").click(function(){
+		//判断用户是否已经登陆
+		var isLogin = false;
 		$.ajax({
 			url:"/user/isLogin.action",
 			type:"POST",
 			dataType: 'json',
 			data:{},
 			success:function(data){
-				alert(data.state);
-				alert(data["a"]);
-				alert(data["b"]);
+				alert(data);
+				console.log(data);
+				if(data.state=='0'){
+					$.messager.alert('提示',data.info);
+				}else if(data.state=='1'){
+					isLogin = true;
+				}
 			},error: function (XMLHttpRequest, textStatus, errorThrown){
-				alert('发生异常！');
+				$.messager.alert('提示','发生异常！');
 			}
 		});
-	});
-	//save
-	$("#save").click(function(){
+		if(!isLogin){
+			return;
+		}
 		if($("#title").val().trim()==''){
 			$.messager.alert('提示',"标题不能为空！");
 			return;

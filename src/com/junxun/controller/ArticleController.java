@@ -1,5 +1,7 @@
 package com.junxun.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,16 +29,22 @@ public class ArticleController{
 	 * @date 2015年10月21日
 	 */
 	@RequestMapping(value="/beforeAddArticle")
-	public ModelAndView beforeAddArticle(){
+	public ModelAndView beforeAddArticle(HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
-		mv.setViewName("/junxun/article/addArticle");
 		try{
-			
+			String uid = (String) session.getAttribute("USERID");
+			if(uid!=null&&!uid.trim().equals("")){
+				mv.setViewName("/junxun/article/addArticle");
+			}else{
+				res.setFailed("请登录后再投稿！");
+				mv.setViewName("/junxun/public/prompt");
+			}
 		}catch(Exception e){
 			res.setFailed("程序发生异常！");
 			log.error("beforeAddArticle", e);
 		}
+		mv.addObject("res", res);
 		return mv;
 	}
 	/**
@@ -49,13 +57,19 @@ public class ArticleController{
 	 * @date 2015年10月21日
 	 */
 	@RequestMapping(value="/addArticle")
-	public ModelAndView addArticle(Article article){
+	public ModelAndView addArticle(Article article, HttpSession session){
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		mv.setViewName("/junxun/public/prompt");
 		try{
-			articleService.addArticle(article);
-			res.setSuccessed("新增成功！", 1);
+			String uid = (String) session.getAttribute("USERID");
+			if(uid!=null&&!uid.trim().equals("")){
+				article.setUid(uid);
+				articleService.addArticle(article);
+				res.setSuccessed("新增成功！", 1);
+			}else{
+				res.setFailed("请登录后再投稿！");
+			}
 		}catch(Exception e){
 			res.setFailed("新增失败！");
 			log.error("addArticle", e);
