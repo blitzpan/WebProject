@@ -29,3 +29,15 @@
 	</button>
 	<button type="button" class="btn btn-default" id="goBottom" title="去底部"><span class="glyphicon glyphicon-arrow-down"></span></button>
 </div>
+<script>
+//右侧浮动按钮事件
+$(document).on("click","#goTop",function(){
+	$('html,body').animate({scrollTop: '0px'}, 800);
+}).on("click","#goBottom",function(){
+	$('html,body').animate({scrollTop:$('#footDiv').offset().top}, 800);
+}).on("click","#goComments",function(){
+	$('html,body').animate({scrollTop:$('#comments').offset().top}, 800);
+}).on("click","#refresh",function(){
+	location.reload();
+});
+</script>

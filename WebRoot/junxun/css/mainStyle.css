@@ -25,6 +25,9 @@ ul{
 	margin:0px;
 	padding:0px;
 }
+.floatToBlock{
+	display:block;	
+}
 .listContent p{
 	font-size: 14px;
 	letter-spacing: 0.5px;
@@ -42,14 +45,14 @@ ul{
 .listContent h3>a{
 	text-decoration: none;
 }
-//加上下面两个样式实现导航hover的功能
+/*加上下面两个样式实现导航hover的功能*/
 .navbar .nav > li .dropdown-menu {
 	margin: 0;
 }
 .navbar .nav > li:hover .dropdown-menu {
 	display: block;
 }
-//article详细页面
+/*article详细页面*/
 .articleTitle{
 }
 .articleOther{
@@ -59,4 +62,38 @@ ul{
 	line-height:24px;
 	border-bottom:1px solid  #eee;
 	margin-bottom:10px;
+}
+/*第三方登录*/
+.weibo{
+	background-image: url(/junxun/image/weibo_32x32.png);
+	background-repeat:no-repeat;
+	display:inline-block;
+	width:32px;
+	height:32px;
+	margin:5px;
+	vertical-align:middle;
+}
+.qq{
+	background-image: url(/junxun/image/qq_32x32.png);
+	background-repeat:no-repeat;
+	display:inline-block;
+	width:32px;
+	height:32px;
+	margin:5px;
+	vertical-align:middle;
+}
+.thirdPart{
+	margin-top:10px;
+	padding-top:10px;
+	border-top: 1px solid #eee;
+	font-size:13px;
+	color:rgb(102,102,102);
+	line-height:18.5px;
+}
+/*登录页面*/
+.showDiv{
+	display:block;
+}
+.hideDiv{
+	display:none;
 }
