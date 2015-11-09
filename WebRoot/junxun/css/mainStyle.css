@@ -5,6 +5,11 @@
 	//background:gray;
 }
 */
+.miniFont{
+	font-size:13px;
+	color:rgb(102,102,102);
+	line-height:18.5px;
+}
 .header-logo{
 	float:left;
 	margin:15px 15px 15px 0px;
@@ -96,4 +101,9 @@ ul{
 }
 .hideDiv{
 	display:none;
+}
+/*让alert提示的padding小一点*/
+.alertDivThin{
+	margin-top:2px;
+	padding:5px;
 }
