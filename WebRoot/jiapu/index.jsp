@@ -38,10 +38,11 @@
 					</div>
 				</div>
 				</div>
-				<!-- 修改个人信息 -->
-				<div id="editArea" class="panel panel-default">
+				<!-- 新增个人信息 -->
+				<div id="addArea" class="panel panel-default">
 				<div class="panel-body">
 					<form id="addForm" class="form-horizontal">
+						<input type="hidden" name="uid" id="uid"/>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">姓名</label>
 							<div class="col-sm-9">
@@ -281,7 +282,8 @@
 				var ecConfig = require('echarts/config');
 				function eConsole(param) {
 					var str = param.name + ":" + param.value;
-					alert(str);
+					$("#basicInfo").html(param.name);
+					$("#uid").val(param.value);
 				}
 				myChart.on(ecConfig.EVENT.CLICK, eConsole);
 				// 为echarts对象加载数据 

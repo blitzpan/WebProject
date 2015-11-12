@@ -1,8 +1,9 @@
 $(function(){
 	$("#addShow").click(function(){
-		$("#editArea").show(500);
+		$("#addArea").show(500);
 	});
 	$("#addCancel").click(function(){
 		$("#addForm")[0].reset();
+		$("#addArea").hide(500);
 	});
 });

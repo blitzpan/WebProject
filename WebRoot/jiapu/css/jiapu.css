@@ -1,9 +1,6 @@
 #main{
 	height:600px;
 }
-#editArea{
-	height:600px;
-}
-#editArea{
+#addArea{
 	display:none;
 }
