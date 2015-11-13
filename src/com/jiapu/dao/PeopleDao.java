@@ -29,7 +29,7 @@ public class PeopleDao {
 	public List<People> queryAllPeople(People people) throws Exception{
 		String sql = "select * from jp_people where state=1";
 		Vector values = new Vector();
-		sql += " order by level asc, fid";
+		sql += " order by level asc, fid,birth asc";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper(People.class), values.toArray());
 	}
 	/**
@@ -45,7 +45,7 @@ public class PeopleDao {
 	public int addPeople(People p) throws Exception{
 		String sql = "insert into jp_people(id,fid,name,birth,sex,summary,moddate) values(?,?,?,?,?,?,now())";
 		Vector values = new Vector();
-		values.add(StrUtil.getUUID());
+		values.add(p.getId());
 		values.add(p.getFid());
 		values.add(p.getName());
 		if(p.getBirth().trim().equals("")){
@@ -72,7 +72,20 @@ public class PeopleDao {
 				+ " and not EXISTS ("
 				+ " select * from (SELECT * from jp_people WHERE fid=? and state=1) t"
 				+ " )";
-		System.out.println(sql);
 		return jdbcTemplate.update(sql, p.getId(),p.getId());
+	}
+	/**
+	 * @Description:更新 
+	 * @param @param p
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return int  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	public int upPeople(People p) throws Exception{
+		String sql = "update jp_people set moddate=now(),fid=? where id=?";
+		return jdbcTemplate.update(sql, p.getFid(), p.getId());
 	}
 }

@@ -13,6 +13,7 @@ import com.jiapu.dao.PeopleDao;
 import com.jiapu.entity.DataConstant;
 import com.jiapu.entity.People;
 import com.jiapu.entity.TreeObj;
+import com.utils.StrUtil;
 @Transactional
 @Service
 public class PeopleService {
@@ -28,8 +29,24 @@ public class PeopleService {
 	 * @author Panyk
 	 * @date 2015年11月13日
 	 */
-	public int addPeople(People p) throws Exception{
-		return peopleDao.addPeople(p);
+	public int addPeople(People p, String addType) throws Exception{
+		if(addType.equals("up")){
+			String id_fid = p.getFid();
+			String id = StrUtil.getUUID();
+			//新增父节点
+			p.setFid(id_fid.substring(id_fid.indexOf("_")+1));
+			p.setId(id);
+			peopleDao.addPeople(p);
+			//更新当前节点
+			People tempP = new People();
+			tempP.setId(id_fid.substring(0, id_fid.indexOf("_")));
+			tempP.setFid(id);
+			return peopleDao.upPeople(tempP);
+		}else{
+			p.setId(StrUtil.getUUID());
+			p.setFid(p.getFid().substring(0, p.getFid().indexOf("_")));
+			return peopleDao.addPeople(p);
+		}
 	}
 	/**
 	 * @Description:删除 
@@ -42,6 +59,7 @@ public class PeopleService {
 	 * @date 2015年11月13日
 	 */
 	public int delPeople(People p) throws Exception{
+		p.setId(p.getId().substring(0, p.getId().indexOf("_")));
 		return peopleDao.delPeople(p);
 	}
 	
@@ -81,7 +99,7 @@ public class PeopleService {
 	private TreeObj peopleToTreeObj(People p) throws Exception{
 		TreeObj to = new TreeObj();
 		to.name = p.getName();
-		to.value = p.getId();
+		to.value = p.getId() + "_" + p.getFid();
 		for(People tempP : p.getChildren()){
 			to.children.add(this.peopleToTreeObj(tempP));
 		}

@@ -15,16 +15,22 @@ $(function(){
 		refresh();
 	});
 	$("#addOk").click(function(){
+		var addType = $("#addType").val();
 		var fid = $("#uid").val();
 		var name = $("#name").val();
 		var sex = $("input[name=sex]:checked").val();
 		var csrq = $("#csrq").val();
 		var summary = $("#summary").val();
+		if(name==''){
+			$.messager.alert('提示','姓名不能为空！');
+			return;
+		}
 		$.ajax({
 			url:"/people/addPeople.action",
 			type:"POST",
 			dataType:"json",
 			data:{
+				"addType":addType,
 				"name":name,
 				"sex":sex,
 				"birth":csrq,
@@ -44,7 +50,6 @@ $(function(){
 			error:function(request,status,e){
 				$.messager.alert('提示','新增出现异常！');
 			}
-			
 		});
 	});
 	$("#delBut").click(function(){

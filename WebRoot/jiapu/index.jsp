@@ -46,6 +46,15 @@
 					<form id="addForm" class="form-horizontal">
 						<input type="hidden" name="uid" id="uid"/>
 						<div class="form-group">
+							<label for="addType" class="col-sm-3 control-label"></label>
+							<div class="col-sm-9">
+							<select id="addType" name="addType" class="form-control">
+								<option value="down" selected>儿女</option>
+								<option value="up">父母</option>
+							</select>
+							</div>
+						</div>
+						<div class="form-group">
 							<label class="col-sm-3 control-label">姓名</label>
 							<div class="col-sm-9">
 							<input type="text" class="form-control" id="name" name="name">

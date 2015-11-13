@@ -28,10 +28,10 @@ public class PeopleController{
 	 */
 	@RequestMapping(value="/addPeople")
 	@ResponseBody
-	public Object addPeople(People p) throws Exception{
+	public Object addPeople(People p,String addType) throws Exception{
 		Res res = new Res();
 		try{
-			res.setSuccessed(peopleService.addPeople(p));
+			res.setSuccessed(peopleService.addPeople(p, addType));
 		}catch(Exception e){
 			log.error("addPeople", e);
 			res.setFailed("新增出现异常。");
