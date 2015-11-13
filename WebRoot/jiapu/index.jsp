@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="./css/jiapu.css"/>
 	<script src="/js/jquery-2.1.4.js"></script>
 	<script src="/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<script src="/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
 	<!-- ECharts单文件引入 -->
     <script src="/echarts/dist/echarts.js"></script>
     <!-- my97DatePicker -->
@@ -31,6 +32,7 @@
 					<!-- 显示个人基本信息 -->
 					<h3 id="basicInfo">潘冬子-男-18岁</h3>
 					<div>
+						<button id="refresh" type="button" class="btn btn-primary">刷新</button>
 						<button type="button" class="btn btn-info">详细</button>
 						<button type="button" class="btn btn-danger">修改</button>
 						<button id="addShow" type="button" class="btn btn-primary">新增</button>
@@ -76,6 +78,8 @@
 		</div>
 	</div>
     <script type="text/javascript">
+    	var myChart;
+    	var option;
         // 路径配置
         require.config({
             paths: {
@@ -90,7 +94,7 @@
             ],
             function (ec) {
                 // 基于准备好的dom，初始化echarts图表
-                var myChart = ec.init(document.getElementById('main')); 
+                myChart = ec.init(document.getElementById('main')); 
 				// 过渡---------------------
 				myChart.showLoading({
 					text: '正在努力的读取数据中...',    //loading话术
@@ -148,6 +152,23 @@
 								}
 							}
 						},
+						/*
+						data: [{
+								name: '手机',
+								value: 6,
+								symbolSize: [90, 70],
+								itemStyle: {
+									normal: {
+										color: '#ffff00',
+										label: {
+											show: true
+										}
+									}
+								},
+								children:[]
+							}]
+						*/
+						
 						data: [
 							{
 								name: '手机',
@@ -277,6 +298,11 @@
 								]
 							}
 						]
+							
+							
+							
+							
+							
 					}]
 				};
 				var ecConfig = require('echarts/config');

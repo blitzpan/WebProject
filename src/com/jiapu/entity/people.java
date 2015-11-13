@@ -1,20 +1,20 @@
 package com.jiapu.entity;
 
-public class people {
+import java.util.ArrayList;
+import java.util.List;
+
+public class People {
 	private String id;
+	private String fid;
 	private String name;
 	private int age;
 	private String birth;
 	private String sex;
 	private String summary;
 	private String desc;
+	private int level;
+	private List<People> children = new ArrayList<People>();
 	
-	@Override
-	public String toString() {
-		return "people [age=" + age + ", birth=" + birth + ", desc=" + desc
-				+ ", id=" + id + ", name=" + name + ", sex=" + sex
-				+ ", summary=" + summary + "]";
-	}
 	public String getId() {
 		return id;
 	}
@@ -56,5 +56,28 @@ public class people {
 	}
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public String getFid() {
+		return fid;
+	}
+	public void setFid(String fid) {
+		this.fid = fid;
+	}
+	public List<People> getChildren() {
+		return children;
+	}
+	public void setChildren(List<People> children) {
+		this.children = children;
+	}
+	@Override
+	public String toString() {
+		return "People [id=" + id + ", fid=" + fid + ", name=" + name + ", age=" + age + ", birth=" + birth + ", sex="
+				+ sex + ", summary=" + summary + ", desc=" + desc + ", level=" + level + ", children=" + children + "]";
 	}
 }
