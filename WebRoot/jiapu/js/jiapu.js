@@ -80,6 +80,11 @@ $(function(){
 			
 		});
 	});
+	//显示详情
+	$("#detailBtn").click(function(){
+		console.log(1);
+		window.open("/people/queryDetail.action?id="+$("#uid").val());
+	});
 });
 function refresh(){
 	$.ajax({

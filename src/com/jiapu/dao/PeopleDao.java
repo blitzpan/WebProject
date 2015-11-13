@@ -88,4 +88,26 @@ public class PeopleDao {
 		String sql = "update jp_people set moddate=now(),fid=? where id=?";
 		return jdbcTemplate.update(sql, p.getFid(), p.getId());
 	}
+	/**
+	 * @Description:查询一个people 
+	 * @param @param p
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return People  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	public People queryOnePeople(People p) throws Exception{
+		String sql = "select id,fid,name,age,sex,summary,des,date_format(birth,'%Y-%m-%d %H:%i:%s') birth from jp_people where id=?";
+		People res = new People();
+		try{
+			res = jdbcTemplate.queryForObject(sql, new Object[]{p.getId()}, new BeanPropertyRowMapper(People.class) );
+		}catch(Exception e){
+			e.printStackTrace();
+			res = new People();
+			res.setName("您所查询的信息不存在！");
+		}
+		return res;
+	}
 }

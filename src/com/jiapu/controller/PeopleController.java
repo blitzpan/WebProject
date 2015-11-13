@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jiapu.entity.People;
 import com.jiapu.service.PeopleService;
@@ -85,5 +86,29 @@ public class PeopleController{
 			res.setFailed("系统出现异常，请稍后再次尝试！");
 		}
         return res;
+	}
+	/**
+	 * @Description:查询一个详细信息 
+	 * @param @param p
+	 * @param @return   
+	 * @return ModelAndView  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	@RequestMapping(value="queryDetail")
+	public ModelAndView queryDetail(People p) {
+		ModelAndView mv = new ModelAndView();
+		Res res = new Res();
+		try{
+			p.setId(p.getId().substring(0, p.getId().indexOf("_")));
+			res.setSuccessed(peopleService.queryOnePeople(p));
+			mv.setViewName("/jiapu/jiapuDetail");
+		}catch(Exception e){
+			res.setFailed("程序发生异常！");
+			log.error("queryDetail", e);
+		}
+		mv.addObject("res", res);
+		return mv;
 	}
 }

@@ -11,7 +11,7 @@ public class People {
 	private String birth;
 	private String sex;
 	private String summary;
-	private String desc;
+	private String des;
 	private int level;
 	private List<People> children = new ArrayList<People>();
 	
@@ -51,11 +51,11 @@ public class People {
 	public void setSummary(String summary) {
 		this.summary = summary;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDes() {
+		return des;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDes(String des) {
+		this.des = des;
 	}
 	public int getLevel() {
 		return level;
@@ -78,6 +78,6 @@ public class People {
 	@Override
 	public String toString() {
 		return "People [id=" + id + ", fid=" + fid + ", name=" + name + ", age=" + age + ", birth=" + birth + ", sex="
-				+ sex + ", summary=" + summary + ", desc=" + desc + ", level=" + level + ", children=" + children + "]";
+				+ sex + ", summary=" + summary + ", des=" + des + ", level=" + level + ", children=" + children + "]";
 	}
 }

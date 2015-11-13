@@ -62,6 +62,19 @@ public class PeopleService {
 		p.setId(p.getId().substring(0, p.getId().indexOf("_")));
 		return peopleDao.delPeople(p);
 	}
+	/**
+	 * @Description:查询一个people 
+	 * @param @param p
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return People  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	public People queryOnePeople(People p) throws Exception{
+		return peopleDao.queryOnePeople(p);
+	}
 	
 	public List<People> queryAllPeople(People people) throws Exception{
 		return peopleDao.queryAllPeople(people);
