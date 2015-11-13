@@ -7,16 +7,44 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jiapu.dao.PeopleDao;
 import com.jiapu.entity.DataConstant;
 import com.jiapu.entity.People;
 import com.jiapu.entity.TreeObj;
-
+@Transactional
 @Service
 public class PeopleService {
 	@Autowired
 	private PeopleDao peopleDao;
+	/**
+	 * @Description:新增一个用户 
+	 * @param @param p
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return int  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	public int addPeople(People p) throws Exception{
+		return peopleDao.addPeople(p);
+	}
+	/**
+	 * @Description:删除 
+	 * @param @param p
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return int  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月13日
+	 */
+	public int delPeople(People p) throws Exception{
+		return peopleDao.delPeople(p);
+	}
+	
 	public List<People> queryAllPeople(People people) throws Exception{
 		return peopleDao.queryAllPeople(people);
 	}

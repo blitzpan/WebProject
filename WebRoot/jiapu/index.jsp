@@ -30,13 +30,13 @@
 				<div class="panel panel-default">
 				<div class="panel-body">
 					<!-- 显示个人基本信息 -->
-					<h3 id="basicInfo">潘冬子-男-18岁</h3>
+					<h3 id="basicInfo"></h3>
 					<div>
 						<button id="refresh" type="button" class="btn btn-primary">刷新</button>
 						<button type="button" class="btn btn-info">详细</button>
 						<button type="button" class="btn btn-danger">修改</button>
 						<button id="addShow" type="button" class="btn btn-primary">新增</button>
-						<button type="button" class="btn btn-danger">删除</button>
+						<button id="delBut" type="button" class="btn btn-danger">删除</button>
 					</div>
 				</div>
 				</div>
@@ -59,9 +59,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="csrq" class="col-sm-3 control-label">出生日期</label>
+							<label for="csrq" class="col-sm-3 control-label">生日</label>
 							<div class="col-sm-9">
-							<input id="csrq" name="csrq" class="Wdate form-control" type="text" onClick="WdatePicker()" placeHolder="阴历"/>
+							<input id="csrq" name="csrq" class="Wdate form-control" type="text" onClick="WdatePicker()" placeHolder="出生日期（公历）"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -102,8 +102,8 @@
 				myChart.hideLoading();
 				option = {
 					title : {
-						text: '手机品牌',
-						subtext: '线、节点样式'
+						text: '俎豆千秋、本支百世、永言孝思',
+						subtext: '敬祖先长命富贵，孝父母金玉满堂'
 					},
 					tooltip : {
 						trigger: 'item',
@@ -113,9 +113,8 @@
 						show : true,
 						feature : {
 							mark : {show: true},
-							dataView : {show: true, readOnly: false},
 							restore : {show: true},
-							saveAsImage : {show: true}
+							saveAsImage : {show: true},
 						}
 					},
 					calculable : true,
@@ -127,7 +126,8 @@
 						rootLocation: {x: 'center', y: 80}, // 根节点位置  {x: 'center',y: 10}
 						nodePadding: 20,
 						symbol: 'series',
-						symbolSize: 40,			
+						symbolSize: 40,		
+						roam: true,
 						itemStyle: {
 							normal: {
 								label: {
@@ -152,9 +152,9 @@
 								}
 							}
 						},
-						/*
+						/**/
 						data: [{
-								name: '手机',
+								name: '家谱',
 								value: 6,
 								symbolSize: [90, 70],
 								itemStyle: {
@@ -167,8 +167,8 @@
 								},
 								children:[]
 							}]
-						*/
 						
+						/*
 						data: [
 							{
 								name: '手机',
@@ -298,7 +298,7 @@
 								]
 							}
 						]
-							
+							*/
 							
 							
 							
