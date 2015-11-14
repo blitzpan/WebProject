@@ -22,13 +22,16 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">基本信息</div>
 				<div class="panel-body">
-					<div class="col-sm-1">姓名：</div>
-					<div class="col-sm-2">${res.res.name}</div>
-					<div class="col-sm-1">性别：</div>
-					<div class="col-sm-2">${res.res.sex eq '0'?"男":"女"}</div>
-					<div class="col-sm-1">出生日期：</div>
-					<div class="col-sm-2">${res.res.birth}</div>
-					<div class="col-sm-3"></div>
+					<table class="table table-bordered">
+						<tr>
+							<td align="right" width="100px">姓名：</td>
+							<td width="250px">${res.res.name}</td>
+							<td align="right" width="100px">性别：</td>
+							<td width="250px">${res.res.sex eq '0'?"男":"女"}</td>
+							<td align="right" width="100px">出生日期：</td>
+							<td width="250px">${res.res.birth}</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>

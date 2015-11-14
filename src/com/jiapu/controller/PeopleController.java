@@ -97,13 +97,17 @@ public class PeopleController{
 	 * @date 2015年11月13日
 	 */
 	@RequestMapping(value="queryDetail")
-	public ModelAndView queryDetail(People p) {
+	public ModelAndView queryDetail(People p, String mod) {
 		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
 		try{
 			p.setId(p.getId().substring(0, p.getId().indexOf("_")));
 			res.setSuccessed(peopleService.queryOnePeople(p));
-			mv.setViewName("/jiapu/jiapuDetail");
+			if(mod!=null&&mod.trim().equals("mod")){
+				mv.setViewName("/jiapu/jiapuMod");
+			}else{
+				mv.setViewName("/jiapu/jiapuDetail");
+			}
 		}catch(Exception e){
 			res.setFailed("程序发生异常！");
 			log.error("queryDetail", e);

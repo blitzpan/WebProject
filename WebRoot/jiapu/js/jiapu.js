@@ -82,8 +82,19 @@ $(function(){
 	});
 	//显示详情
 	$("#detailBtn").click(function(){
-		console.log(1);
+		if($("#uid").val()==''){
+			$.messager.alert('提示','请先选择一个人后再进行操作！');
+			return;
+		}
 		window.open("/people/queryDetail.action?id="+$("#uid").val());
+	});
+	//进入修改页面
+	$("#modBtn").click(function(){
+		if($("#uid").val()==''){
+			$.messager.alert('提示','请先选择一个人后再进行操作！');
+			return;
+		}
+		window.open("/people/queryDetail.action?mod=mod&id="+$("#uid").val());
 	});
 });
 function refresh(){

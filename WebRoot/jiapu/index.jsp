@@ -34,7 +34,7 @@
 					<div>
 						<button id="refresh" type="button" class="btn btn-primary">刷新</button>
 						<button id="detailBtn" type="button" class="btn btn-info">详细</button>
-						<button type="button" class="btn btn-danger">修改</button>
+						<button id="modBtn" type="button" class="btn btn-danger">修改</button>
 						<button id="addShow" type="button" class="btn btn-primary">新增</button>
 						<button id="delBut" type="button" class="btn btn-danger">删除</button>
 					</div>
