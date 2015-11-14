@@ -20,10 +20,11 @@
 	<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 	<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 	<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/ueditor1_2_6_1/lang/zh-cn/zh-cn.js"></script>
+	<!-- my97DatePicker -->
+    <script language="javascript" type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
 	<style>
 	</style>
 	<script>
-		var desc = "${res.res.des }";
 	</script>
 </head>
 <body>
@@ -33,17 +34,25 @@
 				<div class="panel-heading">基本信息</div>
 				<div class="panel-body">
 				<form id="basicForm" class="form-inline">
+					<input id="id" name="id" type="hidden" value="${res.res.id }"/>
 					<div class="form-group">
 						<label for="name" class="control-label">姓名</label>
 						<input id="name" name="name" type="text" class="form-control" value="${res.res.name}"/>
 					</div>
 					<div class="form-group">
-						<label for="sex" class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;性别</label>
-						<input id="name" name="name" type="text" class="form-control" value="${res.res.sex eq '0'?"男":"女"}"/>
+						<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;性别</label>
+						<c:if test="${res.res.sex=='0' }">
+							<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0" checked>男</input></label>
+							<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1">女</input></label>
+						</c:if>
+						<c:if test="${res.res.sex=='1' }">
+							<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0">男</input></label>
+							<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1" checked>女</input></label>
+						</c:if>
 					</div>
 					<div class="form-group">
 						<label for="birth" class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;生日</label>
-						<input id="birth" name="birth" type="text" class="form-control" value="${res.res.birth}"/>
+						<input id="birth" name="birth" class="Wdate form-control" value="${res.res.birth}" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" placeHolder="出生日期（公历）"/>
 					</div>
 				</form>
 				<br />
@@ -56,11 +65,10 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-heading">详细介绍</div>
-				<div class="panel-body">
-					<script id="editor" type="text/plain" style="height:500px"></script>
+				<div class="panel-body_">
+					<script id="editor" type="text/plain" style="height:500px">${res.res.des }</script>
 					<br />
-					<button id="descSaveBtn" name="descSaveBtn" type="button" class="btn btn-primary">保存详细信息</button>
-					<button id="test" type="button" class="btn btn-primary">测试读取</button>
+					<button style="margin-left:15px;margin-bottom:15px" id="descSaveBtn" name="descSaveBtn" type="button" class="btn btn-primary">保存详细信息</button>
 				</div>
 			</div>
 		</div>

@@ -115,4 +115,26 @@ public class PeopleController{
 		mv.addObject("res", res);
 		return mv;
 	}
+	/**
+	* 基本功能：修改
+	* 编    者：潘宜奎
+	* 完成日期：2015年11月14日
+	* 修改内容：
+	* @param upType:
+	* @return 
+	* @throws
+	 */
+	@RequestMapping(value="upPeople")
+	@ResponseBody
+	public Object upPeople(People p, String upType) {
+		Res res = new Res();
+		try{
+			res.setSuccessed("修改成功！", peopleService.upPeople(p, upType));
+		}catch(Exception e){
+			res.setFailed("程序发生异常！");
+			log.error("upPeople", e);
+		}
+		return res;
+	}
+	
 }

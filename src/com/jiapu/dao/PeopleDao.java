@@ -89,6 +89,33 @@ public class PeopleDao {
 		return jdbcTemplate.update(sql, p.getFid(), p.getId());
 	}
 	/**
+	* 基本功能：用户基本信息和详细信息修改
+	* 编    者：潘宜奎
+	* 完成日期：2015年11月14日
+	* 修改内容：
+	* @param 
+	* @return 
+	* @throws
+	 */
+	public int upPeople(People p, String upType) throws Exception{
+		if(upType!=null && upType.trim().equals("basic")){//修改基本信息
+			if(p.getBirth()!=null && !p.getBirth().trim().equals("")){
+				String sql = "update jp_people set moddate=now(),name=?,birth=?,sex=?,summary=? where id=?";
+				System.out.println(sql);
+				return jdbcTemplate.update(sql, p.getName(),p.getBirth(), p.getSex(),p.getSummary(), p.getId());
+			}else{
+				String sql = "update jp_people set moddate=now(),name=?,sex=?,summary=? where id=?";
+				System.out.println(sql);
+				return jdbcTemplate.update(sql, p.getName(), p.getSex(),p.getSummary(), p.getId());
+			}
+		}else if(upType!=null && upType.trim().equals("desc")){//修改详细信息
+			String sql = "update jp_people set moddate=now(),des=? where id=?";
+			System.out.println(sql);
+			return jdbcTemplate.update(sql, p.getDes(), p.getId());
+		}
+		return 0;
+	}
+	/**
 	 * @Description:查询一个people 
 	 * @param @param p
 	 * @param @return
@@ -99,7 +126,7 @@ public class PeopleDao {
 	 * @date 2015年11月13日
 	 */
 	public People queryOnePeople(People p) throws Exception{
-		String sql = "select id,fid,name,age,sex,summary,des,date_format(birth,'%Y-%m-%d %H:%i:%s') birth from jp_people where id=?";
+		String sql = "select id,fid,name,age,sex,summary,des,date_format(birth,'%Y-%m-%d') birth from jp_people where id=?";
 		People res = new People();
 		try{
 			res = jdbcTemplate.queryForObject(sql, new Object[]{p.getId()}, new BeanPropertyRowMapper(People.class) );

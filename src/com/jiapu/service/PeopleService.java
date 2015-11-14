@@ -118,4 +118,16 @@ public class PeopleService {
 		}
 		return to;
 	}
+	/**
+	* 基本功能：更新
+	* 编    者：潘宜奎
+	* 完成日期：2015年11月14日
+	* 修改内容：
+	* @param 
+	* @return 
+	* @throws
+	 */
+	public int upPeople(People p, String upType) throws Exception{
+		return peopleDao.upPeople(p, upType);
+	}
 }
