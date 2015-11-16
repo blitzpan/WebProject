@@ -1,6 +1,13 @@
 $(function(){
 	initLoading();
 	refresh();
+	$("input[name=sex]").click(function(){
+		if($(this).val()=='0'){
+			$("#wifeDiv").show();
+		}else{
+			$("#wifeDiv").hide();
+		}
+	});
 	$("#addShow").click(function(){
 		if($("#uid").val()==''){
 			$.messager.alert("提示","请先选择一位再新增！");

@@ -8,8 +8,11 @@ public class People {
 	private String fid;
 	private String name;
 	private int age;
+	private int live;
 	private String birth;
 	private String sex;
+	private String wife;
+	private int live2;
 	private String summary;
 	private String des;
 	private int level;
@@ -75,9 +78,28 @@ public class People {
 	public void setChildren(List<People> children) {
 		this.children = children;
 	}
+	public int getLive() {
+		return live;
+	}
+	public void setLive(int live) {
+		this.live = live;
+	}
+	public String getWife() {
+		return wife;
+	}
+	public void setWife(String wife) {
+		this.wife = wife;
+	}
+	public int getLive2() {
+		return live2;
+	}
+	public void setLive2(int live2) {
+		this.live2 = live2;
+	}
 	@Override
 	public String toString() {
-		return "People [id=" + id + ", fid=" + fid + ", name=" + name + ", age=" + age + ", birth=" + birth + ", sex="
-				+ sex + ", summary=" + summary + ", des=" + des + ", level=" + level + ", children=" + children + "]";
+		return "People [id=" + id + ", fid=" + fid + ", name=" + name + ", age=" + age + ", live=" + live + ", birth="
+				+ birth + ", sex=" + sex + ", wife=" + wife + ", live2=" + live2 + ", summary=" + summary + ", des="
+				+ des + ", level=" + level + ", children=" + children + "]";
 	}
 }

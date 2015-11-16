@@ -50,8 +50,8 @@
 							<label for="addType" class="col-sm-3 control-label"></label>
 							<div class="col-sm-9">
 							<select id="addType" name="addType" class="form-control">
-								<option value="down" selected>儿女</option>
-								<option value="up">父母</option>
+								<option value="down" selected>晚辈</option>
+								<option value="up">长辈</option>
 							</select>
 							</div>
 						</div>
@@ -66,6 +66,12 @@
 							<div class="col-sm-9">
 							<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0" checked>男</input></label>
 							<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1">女</input></label>
+							</div>
+						</div>
+						<div id="wifeDiv" class="form-group">
+							<label for="wife" class="col-sm-3 control-label">妻子</label>
+							<div class="col-sm-9">
+							<input type="text" class="form-control" id="wife" name="wife"/>
 							</div>
 						</div>
 						<div class="form-group">

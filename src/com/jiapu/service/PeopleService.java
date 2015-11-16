@@ -87,7 +87,7 @@ public class PeopleService {
 		this.getSons(pl, tempP);
 //		System.out.println("后=" + tempP);
 		TreeObj to = this.peopleToTreeObj(tempP);
-//		System.out.println("to="+to);
+		System.out.println("to="+to);
 		res.add(to);
 		return res;
 	}

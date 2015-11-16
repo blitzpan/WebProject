@@ -22,6 +22,7 @@
 	<script type="text/javascript" charset="utf-8" src="<%=path %>/junxun/ueditor1_2_6_1/lang/zh-cn/zh-cn.js"></script>
 	<!-- my97DatePicker -->
     <script language="javascript" type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/publicJs.js"></script>
 	<style>
 	</style>
 	<script>
@@ -35,30 +36,82 @@
 				<div class="panel-body">
 				<form id="basicForm" class="form-inline">
 					<input id="id" name="id" type="hidden" value="${res.res.id }"/>
-					<div class="form-group">
-						<label for="name" class="control-label">姓名</label>
-						<input id="name" name="name" type="text" class="form-control" value="${res.res.name}"/>
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="form-group">
+							<label for="name" class="control-label">姓名</label>
+							<input id="name" name="name" type="text" class="form-control" value="${res.res.name}"/>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="form-group">
+								<label class="control-label">性别</label>
+								<c:if test="${res.res.sex=='0' }">
+									<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0" checked>男</input></label>
+									<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1">女</input></label>
+								</c:if>
+								<c:if test="${res.res.sex=='1' }">
+									<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0">男</input></label>
+									<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1" checked>女</input></label>
+								</c:if>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="form-group">
+								<label class="control-label">是否健在</label>
+								<c:if test="${res.res.live=='0' }">
+									<label for="live_y" class="checkbox-inline"><input type="radio" id="live_y" name="live" value="0" checked>是</input></label>
+									<label for="live_n" class="checkbox-inline"><input type="radio" id="live_n" name="live" value="1">否</input></label>
+								</c:if>
+								<c:if test="${res.res.live=='1' }">
+									<label for="live_y" class="checkbox-inline"><input type="radio" id="live_y" name="live" value="0">是</input></label>
+									<label for="live_n" class="checkbox-inline"><input type="radio" id="live_n" name="live" value="1" checked>否</input></label>
+								</c:if>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;性别</label>
-						<c:if test="${res.res.sex=='0' }">
-							<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0" checked>男</input></label>
-							<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1">女</input></label>
-						</c:if>
-						<c:if test="${res.res.sex=='1' }">
-							<label for="sex_m" class="checkbox-inline"><input type="radio" id="sex_m" name="sex" value="0">男</input></label>
-							<label for="sex_f" class="checkbox-inline"><input type="radio" id="sex_f" name="sex" value="1" checked>女</input></label>
-						</c:if>
-					</div>
-					<div class="form-group">
-						<label for="birth" class="control-label">&nbsp;&nbsp;&nbsp;&nbsp;生日</label>
-						<input id="birth" name="birth" class="Wdate form-control" value="${res.res.birth}" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" placeHolder="出生日期（公历）"/>
+					<br />
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="form-group">
+								<label for="birth" class="control-label">生日</label>
+								<input id="birth" name="birth" class="Wdate form-control" value="${res.res.birth}" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" placeHolder="出生日期（公历）"/>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="form-group wifeDiv
+							<c:if test="${res.res.sex!='0' }">
+								 hidden
+							</c:if>
+							">
+							<label for="wife" class="control-label">妻子</label>
+							<input id="wife" name="wife" type="text" class="form-control" value="${res.res.wife}"/>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="form-group wifeDiv
+							<c:if test="${res.res.sex!='0' }">
+								 hidden
+							</c:if>
+							">
+								<label class="control-label">是否健在</label>
+								<c:if test="${res.res.live2=='0' }">
+									<label class="checkbox-inline"><input type="radio" name="live2" value="0" checked>是</input></label>
+									<label class="checkbox-inline"><input type="radio" name="live2" value="1">否</input></label>
+								</c:if>
+								<c:if test="${res.res.live2=='1' }">
+									<label class="checkbox-inline"><input type="radio" name="live2" value="0">是</input></label>
+									<label class="checkbox-inline"><input type="radio" name="live2" value="1" checked>否</input></label>
+								</c:if>
+							</div>
+						</div>
 					</div>
 				</form>
 				<br />
 				<textarea id="summary" name="summary" class="form-control" rows="4" placeHolder="简介">${res.res.summary}</textarea>
 				<br />
 				<button id="basicSaveBtn" name="basicSaveBtn" type="button" class="btn btn-primary">保存基本信息</button>
+				<button style="margin-left:15px" type="button" class="btn btn-danger closeBtn">关闭</button>
 				</div>
 			</div>
 		</div>
@@ -69,6 +122,7 @@
 					<script id="editor" type="text/plain" style="height:500px">${res.res.des }</script>
 					<br />
 					<button style="margin-left:15px;margin-bottom:15px" id="descSaveBtn" name="descSaveBtn" type="button" class="btn btn-primary">保存详细信息</button>
+					<button style="margin-left:15px;margin-bottom:15px" name="descSaveBtn" type="button" class="btn btn-danger closeBtn">关闭</button>
 				</div>
 			</div>
 		</div>
