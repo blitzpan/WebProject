@@ -27,6 +27,7 @@ $(function(){
 		var fid = $("#uid").val();
 		var name = $("#name").val();
 		var sex = $("input[name=sex]:checked").val();
+		var wife = $("#wife").val();
 		var csrq = $("#csrq").val();
 		var summary = $("#summary").val();
 		if(name==''){
@@ -44,9 +45,9 @@ $(function(){
 				"sex":sex,
 				"birth":csrq,
 				"summary":summary,
-				"fid":fid
+				"fid":fid,
+				"wife":wife
 			},
-			async:true,
 			success:function(data){
 				hideLoading();
 				console.log(data);

@@ -87,7 +87,7 @@ public class PeopleService {
 		this.getSons(pl, tempP);
 //		System.out.println("后=" + tempP);
 		TreeObj to = this.peopleToTreeObj(tempP);
-		System.out.println("to="+to);
+//		System.out.println("to="+to);
 		res.add(to);
 		return res;
 	}
@@ -102,8 +102,11 @@ public class PeopleService {
 		}
 	}
 	private TreeObj peopleToTreeObj(People p) throws Exception{
-		TreeObj to = new TreeObj();
+		TreeObj to = new TreeObj(p);
 		to.name = p.getName();
+		if(p.getWife()!=null&&!p.getWife().trim().equals("")){
+			to.name += "/" + p.getWife();
+		}
 		to.value = p.getId() + "_" + p.getFid();
 		for(People tempP : p.getChildren()){
 			to.children.add(this.peopleToTreeObj(tempP));

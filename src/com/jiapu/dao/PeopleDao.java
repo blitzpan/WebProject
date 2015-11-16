@@ -43,7 +43,7 @@ public class PeopleDao {
 	 * @date 2015年11月13日
 	 */
 	public int addPeople(People p) throws Exception{
-		String sql = "insert into jp_people(id,fid,name,birth,sex,summary,moddate) values(?,?,?,?,?,?,now())";
+		String sql = "insert into jp_people(id,fid,name,birth,sex,wife,summary,moddate) values(?,?,?,?,?,?,?,now())";
 		Vector values = new Vector();
 		values.add(p.getId());
 		values.add(p.getFid());
@@ -54,6 +54,7 @@ public class PeopleDao {
 			values.add(p.getBirth());
 		}		
 		values.add(p.getSex());
+		values.add(p.getWife());
 		values.add(p.getSummary());
 		return jdbcTemplate.update(sql, values.toArray());
 	}

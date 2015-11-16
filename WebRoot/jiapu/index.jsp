@@ -21,13 +21,13 @@
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div id="rowOne" class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-9">
 				<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 				<div id="main"></div>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-lg-3">
 				<div class="panel panel-default">
 				<div class="panel-body">
 					<!-- 显示个人基本信息 -->
