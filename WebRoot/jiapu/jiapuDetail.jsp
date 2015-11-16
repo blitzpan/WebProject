@@ -28,8 +28,24 @@
 							<td width="250px">${res.res.name}</td>
 							<td align="right" width="100px">性别：</td>
 							<td width="250px">${res.res.sex eq '0'?"男":"女"}</td>
+							<td align="right" width="100px">是否健在：</td>
+							<td width="250px">${res.res.live eq '0'?"是":"否"}</td>
+						</tr>
+						<tr>
 							<td align="right" width="100px">出生日期：</td>
 							<td width="250px">${res.res.birth}</td>
+							<c:if test="${res.res.sex eq '0' }">
+								<td align="right" width="100px">妻子：</td>
+								<td width="250px">${res.res.wife }</td>
+								<td align="right" width="100px">是否健在：</td>
+								<td width="250px">${res.res.live2 eq '0'?"是":"否"}</td>
+							</c:if>
+							<c:if test="${res.res.sex eq '1' }">
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</c:if>
 						</tr>
 					</table>
 				</div>

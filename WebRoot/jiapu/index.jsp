@@ -23,11 +23,11 @@
 <body>
 	<div class="container-fluid">
 		<div id="rowOne" class="row">
-			<div class="col-lg-9">
+			<div id="leftDiv" class="col-lg-9">
 				<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 				<div id="main"></div>
 			</div>
-			<div class="col-lg-3">
+			<div id="rightDiv" class="col-lg-3">
 				<div class="panel panel-default">
 				<div class="panel-body">
 					<!-- 显示个人基本信息 -->
@@ -131,6 +131,27 @@
 							mark : {show: true},
 							restore : {show: true},
 							saveAsImage : {show: true},
+							myTool : {
+				                show : true,
+				                title : '全屏',
+				                icon : '/images/full-screen.png',
+				                onclick : function (){
+				                    $("#rightDiv").toggle(
+				                    	function(){
+				                    		//这个全屏代码根本就没有实现
+				                    		$("#rightDiv").hide();
+				                    		$("#leftDiv").removeClass("col-lg-9");
+				                    		$("#leftDiv").addClass("col-lg-12");
+				                    		$("#leftDiv").resize();
+				                    	},
+				                    	function(){
+				                    		$("#leftDiv").removeClass("col-lg-12");
+				                    		$("#leftDiv").addClass("col-lg-19");
+				                    		$("#rightDiv").show();
+				                    	}
+				                    );
+				                }
+				            }
 						}
 					},
 					calculable : true,
