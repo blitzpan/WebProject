@@ -58,7 +58,7 @@ public class PeopleController{
 			if(count > 0){
 				res.setSuccessed(1);
 			}else{
-				res.setFailed("后代不为空不允许删除！");
+				res.setFailed("有后代不允许删除！");
 			}
 		}catch(Exception e){
 			log.error("delPeople", e);

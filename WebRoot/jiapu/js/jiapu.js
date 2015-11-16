@@ -1,4 +1,5 @@
 $(function(){
+	initLoading();
 	refresh();
 	$("#addShow").click(function(){
 		if($("#uid").val()==''){
@@ -25,6 +26,7 @@ $(function(){
 			$.messager.alert('提示','姓名不能为空！');
 			return;
 		}
+		showLoading("处理中，请稍候...");
 		$.ajax({
 			url:"/people/addPeople.action",
 			type:"POST",
@@ -37,7 +39,9 @@ $(function(){
 				"summary":summary,
 				"fid":fid
 			},
+			async:true,
 			success:function(data){
+				hideLoading();
 				console.log(data);
 				if(data.state=='1'){
 					$("#addForm")[0].reset();
@@ -48,6 +52,7 @@ $(function(){
 				}
 			},
 			error:function(request,status,e){
+				hideLoading();
 				$.messager.alert('提示','新增出现异常！');
 			}
 		});
@@ -58,6 +63,7 @@ $(function(){
 			$.messager.alert('提示','请先选择一个人后再删除！');
 			return;
 		}
+		showLoading("处理中，请稍候...");
 		$.ajax({
 			url:"/people/delPeople.action",
 			type:"POST",
@@ -66,6 +72,7 @@ $(function(){
 				"id":id
 			},
 			success:function(data){
+				hideLoading();
 				if(data.state=='1'){
 					refresh();
 					$("#uid").val('');
@@ -75,10 +82,12 @@ $(function(){
 				}
 			},
 			error:function(request,status,e){
+				hideLoading();
 				$.messager.alert('提示','删除出现异常！');
 			}
 			
 		});
+		hideLoading();
 	});
 	//显示详情
 	$("#detailBtn").click(function(){

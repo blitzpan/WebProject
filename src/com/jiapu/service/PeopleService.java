@@ -83,20 +83,12 @@ public class PeopleService {
 		List<People> pl = this.queryAllPeople(people);
 		People tempP = pl.get(0);
 		List res = new ArrayList();
-		Map pm = new HashMap();
-		pm.put(DataConstant.name, tempP.getName());
-		pm.put(DataConstant.value, tempP.getId());
-		pm.put(DataConstant.symbolSize, new int[]{90,70});
-		pm.put(DataConstant.children, new ArrayList());
-//		res.add(pm);
-		
-		System.out.println("前=" + tempP);
+//		System.out.println("前=" + tempP);
 		this.getSons(pl, tempP);
-		System.out.println("后=" + tempP);
+//		System.out.println("后=" + tempP);
 		TreeObj to = this.peopleToTreeObj(tempP);
-		System.out.println("to="+to);
+//		System.out.println("to="+to);
 		res.add(to);
-		
 		return res;
 	}
 	private void getSons(List<People> pl, People p) throws Exception{

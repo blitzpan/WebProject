@@ -16,6 +16,7 @@
     <!-- my97DatePicker -->
     <script language="javascript" type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
     <script language="javascript" type="text/javascript" src="./js/jiapu.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/publicJs.js"></script>
 	<style>
 	</style>
 </head>
