@@ -6,9 +6,10 @@
 <head>
   <title>军训登录</title>
   <meta charset="utf-8">
+  <meta property="qc:admins" content="146012410162560566716" />
   <!-- 下面一段是微博的，不能删除 -->
   <meta property="wb:webmaster" content="56b79ea319c9f46b" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/junxun/bootstrap-3.3.5-dist/css/bootstrap.min.css">  
   <link rel="stylesheet" href="/junxun/css/mainStyle.css">  
   <script src="/junxun/js/jquery-2.1.4.js"></script>
