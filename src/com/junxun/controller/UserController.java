@@ -1,5 +1,8 @@
 package com.junxun.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -11,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.common.entity.User;
 import com.common.service.UserService;
+import com.common.utils.SendMailUtils;
 import com.junxun.entity.Res;
 @RequestMapping(value="/user")
 @Controller
@@ -149,5 +153,44 @@ public class UserController{
 		}
 		mv.addObject(res);
 		return mv;
+	}
+	@RequestMapping(value="/sendEmail")
+	@ResponseBody
+	public Object sendEmail(HttpSession session){
+		Res res = new Res();
+		try {
+			User user = new User();
+			user.setId((String)session.getAttribute("USERIDTEMP"));
+			User resU = userService.queryUser(user);
+			if(resU == null){
+				res.setFailed("没有查询到用户信息！");
+			}else{
+				String time = (String)session.getAttribute("REGISTERTIME");
+				Calendar now = Calendar.getInstance(); 
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				String nowStr = sdf.format(now.getTime());
+				if(time==null || time.compareTo(nowStr)<0){
+					String url = "http://www.junxun.win/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
+					SendMailUtils smu = new SendMailUtils(resU.getName(), url);
+					smu.start();
+					now.add(Calendar.MINUTE, 3);
+					session.setAttribute("REGISTERTIME", sdf.format(now.getTime()));
+					res.setSuccessed("已发送！" + sdf.format(now.getTime()), "已发送！" + sdf.format(now.getTime()));
+				}else{
+					res.setFailed("发送过于频繁，请在'"+time+"'之后进行发送！");
+				}
+			}
+		} catch (Exception e) {
+			log.error("sendEmail", e);
+			res.setFailed("程序出现异常，请稍后再试！");
+		}
+		return res;
+	}
+	@RequestMapping(value="/activation")
+	@ResponseBody
+	public Object activation(String email){
+		Res res = new Res();
+		
+		return res;
 	}
 }

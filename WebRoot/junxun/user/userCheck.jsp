@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/junxun/css/mainStyle.css">  
   <script src="/junxun/js/jquery-2.1.4.js"></script>
   <script src="/junxun/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+  <script src="/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
   <script src="/junxun/user/js/userCheck.js"></script>
   <style>
   </style>
@@ -34,7 +35,7 @@
 			<div class="panel panel-default">
 			<div class="panel-body">
 				<mark>${res.res.nickName }</mark>&nbsp;&nbsp;您好：<br />
-				接下来将向您的邮箱<mark>${res.res.name }</mark>发送激活邮件，请注意查收。<br/>
+				接下来将向您的邮箱<mark id="email">${res.res.name }</mark>发送激活邮件，请注意查收。<br/>
 				<button id="activation" type="button" class="btn btn-primary">发送激活邮件</button>
 				<span id="timeC"></span>
 			</div>
