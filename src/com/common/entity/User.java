@@ -2,15 +2,17 @@ package com.common.entity;
 
 public class User {
 	private String id;
-	private String third;//来自哪个平台，1微博；2qq
-	private String thirdUid;//第三方用户id
-	private String accessToken;//access token
-	private String name;//用户登录名
-	private String nickName;//用户昵称
-	private String password;//密码
-	private String description;//简介
-	private String imgUrl;//头像url
-	private String gender;//性别：m女；f男；n为止
+	private String third="";//来自哪个平台，1微博；2qq
+	private String thirdUid="";//第三方用户id
+	private String accessToken="";//access token
+	private String name="";//用户登录名
+	private String nickName="";//用户昵称
+	private String password="";//密码
+	private String description="";//简介
+	private String imgUrl="";//头像url
+	private String gender="n";//性别：m女；f男；n未止
+	private int state = 1;
+	private String securityCode="";//安全码
 	
 	public String getId() {
 		return id;
@@ -71,6 +73,18 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
+	public String getSecurityCode() {
+		return securityCode;
+	}
+	public void setSecurityCode(String securityCode) {
+		this.securityCode = securityCode;
 	}
 
 }

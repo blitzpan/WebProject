@@ -43,18 +43,18 @@
 				<div id="registerDiv" class="hideDiv">
 					<form id="registerForm">
 						<div class="form-group">
-						<input id="name" name="registerName" type="text" class="form-control" placeholder="请输入邮箱"/>
+						<input id="registerName" name="registerName" type="text" class="form-control" placeholder="用户名，必须使用邮箱"/>
 						</div>
 						<div class="form-group">
-						<input id="nickname" name="registerNickname" type="text" class="form-control" placeholder="请输入昵称"/>
+						<input id="registerNickname" name="registerNickname" type="text" class="form-control" placeholder="请输入昵称"/>
 						</div>
 						<div class="form-group">
-						<input id="pw1" name="registerPw1" type="password" class="form-control" placeholder="请输入密码">
+						<input id="registerPw1" name="registerPw1" type="password" class="form-control" placeholder="请输入密码">
 						</div>
 						<div class="form-group">
-						<input id="pw2" name="registerPw2" type="password" class="form-control" placeholder="请再次输入密码">
+						<input id="registerPw2" name="registerPw2" type="password" class="form-control" placeholder="请再次输入密码">
 						</div>
-						<button class="btn btn-primary btn-block" type="button">注册</button>
+						<button id="registerBtn" class="btn btn-primary btn-block" type="button">注册</button>
 					</form>
 				</div>
 				<div id="loginDiv" class="showDiv">

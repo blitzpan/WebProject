@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.common.dao.UserDao;
 import com.common.entity.User;
+import com.utils.StrUtil;
 @Service
 public class UserService {
 	Logger log = Logger.getLogger(UserService.class);
@@ -35,5 +36,57 @@ public class UserService {
 		}
 		return user;
 	}
-
+	/**
+	 * @Description:判断用户是否存在 
+	 * @param @param user
+	 * @param @return   
+	 * @return Object  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月17日
+	 */
+	public int isExist(User user) throws Exception{
+		return userDao.isExist(user);
+	}
+	/**
+	 * @Description:普通用户注册 
+	 * @param @param user
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return int  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月17日
+	 */
+	public int register(User user) throws Exception{
+		user.setId(StrUtil.getUUID());
+		user.setSecurityCode(StrUtil.getUUID());
+		return userDao.addUser(user);
+	}
+	/**
+	 * @Description:根据用户id查询一个用户的所有信息 
+	 * @param @param user
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return User  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月17日
+	 */
+	public User queryById(User user) throws Exception{
+		return userDao.queryById(user);
+	}
+	/**
+	 * @Description:根据条件来查询一个user 
+	 * @param @param user
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return User  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月17日
+	 */
+	public User queryUser(User user) throws Exception{
+		return userDao.queryUser(user);
+	}
 }
