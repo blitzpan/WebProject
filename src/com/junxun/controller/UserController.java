@@ -171,8 +171,8 @@ public class UserController{
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				String nowStr = sdf.format(now.getTime());
 				if(time==null || time.compareTo(nowStr)<0){
-//					String url = "http://www.junxun.win/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
-					String url = "http://127.0.0.1:8080/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
+					String url = "http://www.junxun.win/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
+//					String url = "http://127.0.0.1:8080/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
 					SendMailUtils smu = new SendMailUtils(resU.getName(), url);
 					smu.start();
 					now.add(Calendar.MINUTE, 3);

@@ -45,7 +45,7 @@ a{
 		</div>
 		<div id='content'>
 			<p>${content}</p>
-			<a href="${url}" target="_blank">查看原文</a>
+			<a href="${url}" target="_blank">点我进行激活</a>
 		</div>
 	</div>
 </body>

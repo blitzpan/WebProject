@@ -32,6 +32,10 @@
 			<td width="20%" align="center"><a href="/jiapu/index.jsp" target="_self">家谱</a></td>
 			<td width="80%" align="left">家谱网站功能简介</td>
 		</tr>
+		<tr>
+			<td width="20%" align="center"><a href="/jiapu/index2.jsp" target="_self">家谱2</a></td>
+			<td width="80%" align="left">家谱网站功能简介</td>
+		</tr>
 	</table>
 </div>
 </div>
