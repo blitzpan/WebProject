@@ -33,7 +33,7 @@
 			<c:if test="${res.state!='1' }">
 				<div class="alert alert-danger" role="alert">${res.info }</div>
 			</c:if>
-			<c:if test="nextPage!=''">
+			<c:if test="${nextPage!='' }">
 				<p><a href="${nextPage }" class="btn btn-primary" role="button">${nextPageBtn }</a></p>
 			</c:if>
 		</div>

@@ -19,7 +19,9 @@
 </head>
 <body>
 <div class="container">
-	<div class="row" id="logoDiv"></div>
+	<div class="row" id="logoDiv">
+		<jsp:include page="./public/logoPage.jsp"></jsp:include>
+	</div>
 	<div id="navDiv">
 		<jsp:include page="./public/navPage.jsp"></jsp:include>
 	</div>
@@ -37,7 +39,10 @@
 			<div id="linkDiv"></div>
 		</div>
 	</div>
-	<div class="row" id="footDiv"></div>
+	<div class="row" id="footDiv">
+		<jsp:include page="/junxun/public/footPage.jsp"></jsp:include>
+	</div>
 </div>
+<jsp:include page="./public/toolPage.jsp"></jsp:include>
 </body>
 </html>

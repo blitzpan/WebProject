@@ -34,6 +34,9 @@ public class Page{
 		}
 		pageNo = pageNo < 1? 1:pageNo;
 		pageNo = pageNo > pageSum? pageSum:pageNo;
+		if(pageNo == 0){
+			pageNo = 1;
+		}
 		//上一页
 		hasPrevious = pageNo>1;
 		hasNext = pageNo<pageSum;

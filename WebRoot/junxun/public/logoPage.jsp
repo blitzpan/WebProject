@@ -16,10 +16,10 @@
 
 	<div class="thirdPart">
 		<c:if test="${USERNAME!=null && USERNAME!='' }">
-			您好，${USERNAME }
+			您好，<b>${USERNAME }</b>
 		</c:if>
 		<c:if test="${USERNAME==null }">
-			<a href="/junxun/login.jsp" target="_blank">你好，请登录！</a>
+			你好，请<a href="/junxun/login.jsp" target="_blank">登录！</a>
 		</c:if>
 		
 <!-- 

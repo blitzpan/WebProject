@@ -14,8 +14,8 @@ $(function(){
 			type:"POST",
 			dataType: 'json',
 			data:{},
+			async:false,
 			success:function(data){
-				alert(data);
 				console.log(data);
 				if(data.state=='0'){
 					$.messager.alert('提示',data.info);

@@ -39,7 +39,10 @@
 			<div id="linkDiv"></div>
 		</div>
 	</div>
-	<div class="row" id="footDiv"></div>
+	<div class="row" id="footDiv">
+		<jsp:include page="/junxun/public/footPage.jsp"></jsp:include>
+	</div>
 </div>
+<jsp:include page="./public/toolPage.jsp"></jsp:include>
 </body>
 </html>

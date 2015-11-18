@@ -46,8 +46,6 @@ public class UserController{
 	public Object login(HttpSession session, User user){
 		Res res = new Res();
 		try{
-			System.out.println("name=" + user.getName());
-			System.out.println("pw1=" + user.getPassword());
 			User resU = userService.queryUser(user);
 			if(resU == null){
 				res.setFailed("您输入的用户名或密码不正确。");
@@ -56,6 +54,8 @@ public class UserController{
 				res.setSuccessed("请激活用户名！","/user/userCheck.action");
 			}else{
 				session.setAttribute("USERID", resU.getId());
+				session.setAttribute("USERNAME", resU.getNickName());
+				session.setAttribute("THIRD", resU.getThird());
 				if(resU.getThird().equals("3")){
 					res.setSuccessed("欢迎您！","/junxun/index.jsp");
 				}else if(resU.getThird().equals("4")){
