@@ -29,5 +29,13 @@
 		<div id="navDiv" class="row">
 			<jsp:include page="/jiapu/public/navPage.jsp"></jsp:include>		
 		</div>
+		<div class="row">
+			<div class="col-lg-8" id="centerDiv">
+			8
+			</div>
+			<div class="col-lg-4" id="centerDiv">
+			4
+			</div>
+		</div>
 	</div>
 </body>
