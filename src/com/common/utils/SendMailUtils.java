@@ -100,8 +100,8 @@ public class SendMailUtils extends Thread{
         //这里一定要是gbk，如果是utf-8的话，会出现乱码问题
         MimeMessageHelper messageHelper = new MimeMessageHelper(mailMessage,true,"gbk");
         
-        messageHelper.setTo("1028353676@qq.com");// 接受者
-//        messageHelper.setTo(email);//接受者
+//        messageHelper.setTo("1028353676@qq.com");// 接受者
+        messageHelper.setTo(email);//接受者
         messageHelper.setFrom("youxiangformajia@163.com");// 发送者,和xml中的一致
         messageHelper.setSubject("帐号激活……");// 主题  
         

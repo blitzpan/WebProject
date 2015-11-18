@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.common.entity.User;
 import com.common.service.UserService;
@@ -56,9 +57,9 @@ public class UserController{
 			}else{
 				session.setAttribute("USERID", resU.getId());
 				if(resU.getThird().equals("3")){
-					res.setSuccessed("欢迎您！","/junxun/index");
+					res.setSuccessed("欢迎您！","/junxun/index.jsp");
 				}else if(resU.getThird().equals("4")){
-					res.setSuccessed("欢迎您！","/jiapu/index");
+					res.setSuccessed("欢迎您！","/jiapu/index.jsp");
 				}
 			}
 		}catch(Exception e){
@@ -170,7 +171,8 @@ public class UserController{
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				String nowStr = sdf.format(now.getTime());
 				if(time==null || time.compareTo(nowStr)<0){
-					String url = "http://www.junxun.win/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
+//					String url = "http://www.junxun.win/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
+					String url = "http://127.0.0.1:8080/user/activation.action?id="+resU.getId()+"&securityCode="+resU.getSecurityCode();
 					SendMailUtils smu = new SendMailUtils(resU.getName(), url);
 					smu.start();
 					now.add(Calendar.MINUTE, 3);
@@ -187,10 +189,30 @@ public class UserController{
 		return res;
 	}
 	@RequestMapping(value="/activation")
-	@ResponseBody
-	public Object activation(String email){
+	public ModelAndView activation(RedirectAttributes attr, String id, String securityCode,String third){
+		ModelAndView mv = new ModelAndView();
 		Res res = new Res();
-		
-		return res;
+		try{
+			if(id == null || id.trim().equals("") || securityCode == null || securityCode.trim().equals("")){
+				res.setFailed("激活链接出现问题，请重新发送激活邮件。");
+			}else{
+				User user = new User();
+				user.setName(id);
+				user.setSecurityCode(securityCode);
+				int upC = (Integer)userService.activation(user);
+				if(upC>0){
+					res.setSuccessed("激活成功，请登录！", "激活成功，请登录！");
+				}else{
+					res.setFailed("已经成功激活或激活链接出现问题。");
+				}
+			}
+		}catch(Exception e){
+			log.error("activation", e);
+			res.setFailed("帐号激活程序发生异常！");
+		}
+		String index;
+		mv.addObject(res);
+		mv.setViewName("/public/activationResult");
+		return mv;
 	}
 }

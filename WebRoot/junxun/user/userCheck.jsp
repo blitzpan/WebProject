@@ -35,7 +35,7 @@
 			<div class="panel panel-default">
 			<div class="panel-body">
 				<mark>${res.res.nickName }</mark>&nbsp;&nbsp;您好：<br />
-				接下来将向您的邮箱<mark id="email">${res.res.name }</mark>发送激活邮件，请注意查收。<br/>
+				您的账户尚未激活，点击下面按钮向您的邮箱<mark id="email">${res.res.name }</mark>发送激活邮件，请注意查收。<br/>
 				<button id="activation" type="button" class="btn btn-primary">发送激活邮件</button>
 				<span id="timeC"></span>
 			</div>

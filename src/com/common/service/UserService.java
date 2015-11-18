@@ -89,4 +89,17 @@ public class UserService {
 	public User queryUser(User user) throws Exception{
 		return userDao.queryUser(user);
 	}
+	/**
+	 * @Description: 帐号激活
+	 * @param @param id
+	 * @param @param securityCode
+	 * @param @return   
+	 * @return Object  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月18日
+	 */
+	public Object activation(User user) throws Exception{
+		return userDao.activation(user);
+	}
 }
