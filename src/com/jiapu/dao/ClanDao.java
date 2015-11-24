@@ -52,6 +52,28 @@ public class ClanDao {
 		values.add(clan.getId());
 		return jdbcTemplate.update(sql, values.toArray());
 	}
+	/**
+	 * @Description:查询一个家谱信息 
+	 * @param @param c
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return Clan  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月24日
+	 */
+	public Clan queryOneClan(Clan c) throws Exception{
+		String sql = "SELECT id,uid,name,summary from jp_clan where state=0 and uid=?";
+		Clan res = null;
+		try{
+			res = jdbcTemplate.queryForObject(sql, new Object[]{c.getUid()}, new BeanPropertyRowMapper(Clan.class) );
+		}catch(Exception e){
+			e.printStackTrace();
+			res = new Clan();
+		}
+		return res;
+	}
+
 	public int addPeople(People p) throws Exception{
 		String sql = "insert into jp_people(id,fid,name,birth,sex,wife,summary,moddate) values(?,?,?,?,?,?,?,now())";
 		Vector values = new Vector();
@@ -164,18 +186,6 @@ public class ClanDao {
 	 * @author Panyk
 	 * @date 2015年11月13日
 	 */
-	public People queryOnePeople(People p) throws Exception{
-		String sql = "select id,fid,name,age,sex,wife,live,live2,summary,des,date_format(birth,'%Y-%m-%d') birth from jp_people where id=?";
-		People res = new People();
-		try{
-			res = jdbcTemplate.queryForObject(sql, new Object[]{p.getId()}, new BeanPropertyRowMapper(People.class) );
-		}catch(Exception e){
-			e.printStackTrace();
-			res = new People();
-			res.setName("您所查询的信息不存在！");
-		}
-		return res;
-	}
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}

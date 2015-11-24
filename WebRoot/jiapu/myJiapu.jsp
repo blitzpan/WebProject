@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%String path = request.getContextPath();%>
 <%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./css/jiapu.css"/>
+	<link rel="stylesheet" href="/jiapu/css/jiapu.css"/>
 	<script src="/js/jquery-2.1.4.js"></script>
 	<script src="/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	<script src="/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
@@ -35,21 +36,21 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<form class="form-horizontal" action="">
-							<input type="hidden" name="id" id="id"/>
+							<input type="hidden" name="id" id="id" value="${res.res.id }"/>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="name">名称</label>
-								<div class="col-sm-10"><input name="name" id="name" class="form-control" type="text" placeHolder="家谱名称（小于50字）"></div>
+								<div class="col-sm-10"><input name="name" id="name" value="${res.res.name }" class="form-control" type="text" placeHolder="家谱名称（小于50字）"></div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label" for="summary">简介</label>
 								<div class="col-sm-10">
-									<textarea name="summary" id="summary" rows="5" cols="" class="form-control" placeHolder="简介（小于1000字）"></textarea>
+									<textarea name="summary" id="summary" rows="5" cols="" class="form-control" placeHolder="简介（小于1000字）">${res.res.summary }</textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">具体成员</label>
 								<div class="col-sm-10">
-									<button type="button" class="btn btn-default">编辑</button>
+									<button id="modBtn" type="button" class="btn btn-default">编辑</button>
 								</div>
 							</div>
 							<div style="text-align:center">

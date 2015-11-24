@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.jiapu.entity.Clan;
 import com.jiapu.service.ClanService;
@@ -35,7 +36,7 @@ public class ClanController {
 		Res res = new Res();
 		try{
 			String uid = (String)session.getAttribute("UID");
-			uid = "123";
+			uid = "1234";
 			clan.setUid(uid);
 			if(uid==null||uid.equals("")){
 				res.setFailed("请登陆后再操作！");
@@ -53,5 +54,27 @@ public class ClanController {
 			res.setFailed("程序发生异常！");
 		}
 		return res;
+	}
+	@RequestMapping(value="upJiapuBefore")
+	public ModelAndView upJiapuBefore(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Res res = new Res();
+		try{
+			String uid = (String)session.getAttribute("UID");
+			uid="123";
+			if(uid == null || uid.trim().equals("")){
+				mv.setViewName("index");
+			}else{
+				mv.setViewName("/jiapu/myJiapu");
+				Clan c = new Clan();
+				c.setUid(uid);
+				res.setSuccessed(clanService.queryOneClan(c));
+				mv.addObject(res);
+			}
+		}catch(Exception e){
+			log.error("upJiapuBefore=", e);
+			res.setFailed("程序出现异常！");
+		}
+		return mv;
 	}
 }

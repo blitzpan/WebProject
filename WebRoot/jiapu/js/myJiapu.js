@@ -27,4 +27,7 @@ $(function(){
 		});
 		$(this).removeAttr("disabled");
 	});
+	$("#modBtn").click(function(){
+		window.open("/jiapu/index2.jsp","_blank");
+	});
 });

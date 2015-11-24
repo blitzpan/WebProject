@@ -53,6 +53,19 @@ public class ClanService {
 	public int upClan(Clan clan) throws Exception{
 		return clanDao.upClan(clan);
 	}
+	/**
+	 * @Description:查询一个家谱信息 
+	 * @param @param c
+	 * @param @return
+	 * @param @throws Exception   
+	 * @return Clan  
+	 * @throws
+	 * @author Panyk
+	 * @date 2015年11月24日
+	 */
+	public Clan queryOneClan(Clan c) throws Exception{
+		return clanDao.queryOneClan(c);
+	}
 	public ClanDao getClanDao() {
 		return clanDao;
 	}
