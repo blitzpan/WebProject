@@ -6,6 +6,7 @@ import java.util.List;
 public class People {
 	private String id;
 	private String fid;
+	private String cid;
 	private String name;
 	private int age;
 	private int live;
@@ -98,8 +99,14 @@ public class People {
 	}
 	@Override
 	public String toString() {
-		return "People [id=" + id + ", fid=" + fid + ", name=" + name + ", age=" + age + ", live=" + live + ", birth="
-				+ birth + ", sex=" + sex + ", wife=" + wife + ", live2=" + live2 + ", summary=" + summary + ", des="
-				+ des + ", level=" + level + ", children=" + children + "]";
+		return "People [id=" + id + ", fid=" + fid + ", cid=" + cid + ", name=" + name + ", age=" + age + ", live="
+				+ live + ", birth=" + birth + ", sex=" + sex + ", wife=" + wife + ", live2=" + live2 + ", summary="
+				+ summary + ", des=" + des + ", level=" + level + ", children=" + children + "]";
+	}
+	public String getCid() {
+		return cid;
+	}
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
 }

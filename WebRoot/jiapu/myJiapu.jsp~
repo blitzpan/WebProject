@@ -3,7 +3,7 @@
 <%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <head>
-	<title>家谱网</title>
+	<title>我的家谱</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,10 +14,12 @@
 	<script src="/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<%/*
     <!--[if lt IE 9]>
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	*/%>
 	<style>
 	</style>
 </head>
@@ -31,9 +33,16 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8" id="centerDiv">
-			<jsp:include page="/article/getAllArticle.action">
-				<jsp:param value="index" name="menu"/>
-			</jsp:include>
+				<div class="panelpanel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="">
+							<div class="form-group">
+								<label class="col-sm-3control-label" for="">名称</label>
+								<div class="col-sm-9"><input class="form-control" type=""></div>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 			<div class="col-lg-4" id="centerDiv">
 			4

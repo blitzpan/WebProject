@@ -3,7 +3,7 @@
 <%String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <head>
-	<title>家谱网</title>
+	<title>我的家谱</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,7 @@
 	<script src="/js/jquery-2.1.4.js"></script>
 	<script src="/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 	<script src="/bootstrap-3.3.5-dist/js/jquery.bootstrap.min.js"></script>
+	<script src="/jiapu/js/myJiapu.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,9 +32,32 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8" id="centerDiv">
-			<jsp:include page="/article/getAllArticle.action">
-				<jsp:param value="index" name="menu"/>
-			</jsp:include>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="">
+							<input type="hidden" name="id" id="id"/>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="name">名称</label>
+								<div class="col-sm-10"><input name="name" id="name" class="form-control" type="text" placeHolder="家谱名称（小于50字）"></div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="summary">简介</label>
+								<div class="col-sm-10">
+									<textarea name="summary" id="summary" rows="5" cols="" class="form-control" placeHolder="简介（小于1000字）"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">具体成员</label>
+								<div class="col-sm-10">
+									<button type="button" class="btn btn-default">编辑</button>
+								</div>
+							</div>
+							<div style="text-align:center">
+								<button id="subBtn" type="button" class="btn btn-primary">确定</button>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 			<div class="col-lg-4" id="centerDiv">
 			4

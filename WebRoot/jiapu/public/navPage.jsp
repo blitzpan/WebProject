@@ -16,6 +16,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><a href="/jiapu/myJiapu.jsp">我的家谱</a></li>
         <li><a href="#">反馈意见</a></li>
         <li class="active"><a href="#">关于我们 <span class="sr-only">(current)</span></a></li>
       </ul>
