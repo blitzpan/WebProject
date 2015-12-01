@@ -30,9 +30,6 @@ public class PeopleService {
 	 * @date 2015年11月13日
 	 */
 	public int addPeople(People p, String addType) throws Exception{
-		if(1==1){
-			throw new RuntimeException("异常");
-		}
 		if(addType.equals("up")){
 			String id_fid = p.getFid();
 			String id = StrUtil.getUUID();
