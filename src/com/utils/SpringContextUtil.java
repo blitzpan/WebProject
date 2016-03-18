@@ -1,4 +1,4 @@
-package com.novel.util;
+package com.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
